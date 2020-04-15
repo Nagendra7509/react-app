@@ -1,0 +1,237 @@
+/*body {
+    background-color: white;
+}*/
+
+.countryTemplate-white {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 210px;
+    flex-direction: column;
+    background-color: white;
+    color: black;
+    border: 1px solid lightgrey;
+    box-shadow: 10px 5px 5px grey;
+    margin: 12px;
+    height: 350px;
+    border-radius: 10px;
+}
+
+.countryTemplate-white:hover {
+    transition: 1s;
+    width: 215px;
+}
+
+.countryTemplate-black:hover {
+    transition: 1s;
+    width: 215px;
+}
+
+.countryTemplate-black {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 210px;
+    flex-direction: column;
+    border: 1px solid lightgrey;
+    /*box-shadow: 10px 5px 5px grey;*/
+    margin: 10px;
+    height: 350px;
+    background-color: #404040;
+    color: white;
+    border-radius: 10px;
+}
+
+.country-Images {
+    width: 100%;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.country-Status-App-black {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #404040;
+}
+
+.country-Status-App-white {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+
+}
+
+.top-Panel-black {
+    display: flex;
+    justify-content: space-between;
+    background-color: #404040;
+    color: white;
+    padding: 20px;
+    margin: 10px;
+    font-size: 24px;
+    /* box-shadow: 10px 10px 10px lightgrey;*/
+    border: 0.2px solid lightgrey;
+}
+
+.top-Panel-white {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    color: black;
+    padding: 20px;
+    margin: 10px;
+    font-size: 24px;
+    /*border: 1px solid lightgrey;
+    */
+    box-shadow: 10px 5px 5px lightgrey;
+    border: 0.2px solid lightgrey;
+}
+
+.searchBar-dropDown-black {
+    display: flex;
+    justify-content: space-between;
+    background-color: #404040;
+    color: white;
+    align-items: baseline;
+    font-size: 24px;
+    margin: 20px;
+}
+
+
+.searchBar-dropDown-white {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    background-color: white;
+    color: black;
+    margin: 20px;
+}
+
+.search-Bar-white {
+    height: 30px;
+    width: 200px;
+    font-size: 20px;
+    background-color: white;
+    color: black;
+}
+
+.search-Bar-black {
+    height: 30px;
+    width: 200px;
+    font-size: 20px;
+    background-color: #404040;
+    color: white;
+}
+
+.show-One-Country-img {
+    width: 35%;
+
+}
+
+
+.one-Country-Details-white {
+    display: flex;
+
+    background-color: white;
+    color: black;
+}
+
+.one-Country-Details-black {
+    display: flex;
+    background-color: #404040;
+    color: white;
+}
+
+.one-Country-white {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    background-color: white;
+    color: black;
+}
+
+.one-Country-black {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    background-color: #404040;
+    color: white;
+}
+
+.one-Country-header-white {
+    background-color: white;
+}
+
+.one-Country-header-black {
+    background-color: #404040;
+}
+
+.modeChange-white {
+    border-radius: 2px;
+    font-size: 18px;
+    background-color: white;
+    color: black;
+}
+
+.modeChange-black {
+    border-radius: 2px;
+    font-size: 18px;
+    background-color: #404040;
+    color: white;
+}
+
+select {
+    width: 200px;
+    height: 30px;
+    font-size: 20px;
+}
+
+.country-Details-1 {
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+}
+
+.country-Details-2 {
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+}
+
+b {
+    font-size: 18px;
+}
+
+.app-white {
+    background-color: white;
+}
+
+.app-black {
+    background-color: #404040;
+}
+
+.dropDown-white {
+    background-color: white;
+    color: black;
+}
+
+.dropDown-black {
+    background-color: #404040;
+    color: white;
+}
+
+.backBtn-white {
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    font-size: 20px;
+    margin: 20px;
+}
+
+.backBtn-black {
+    background-color: #404040;
+    color: white;
+    border-radius: 5px;
+    font-size: 20px;
+    margin: 20px;
+}

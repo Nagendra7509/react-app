@@ -1,0 +1,17 @@
+.covid19-Division-white {
+    font-weight: bold;
+    font-size: 18px;
+    margin: 30px 0px 0px 200px;
+    color: black;
+    height: 800px;
+    width: 800px;
+}
+
+.covid19-Division-black {
+    font-weight: bold;
+    font-size: 18px;
+    margin: 30px 0px 0px 200px;
+    color: white;
+    height: 800px;
+    width: 800px;
+}
