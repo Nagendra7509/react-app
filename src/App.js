@@ -10,7 +10,7 @@ import CountriesStatus from './components/CountriesStatus/index.js';
 
 import CountriesDashboardApp from './components/CountriesDashboardApp/index.js';
 
-import EventPageApp from './stores/EventPageAssignment.js'
+import EventPage from './stores/EventPageAssignment.js'
 import "./App.css";
 
 
@@ -50,8 +50,8 @@ const App = () => {
           <Route path="/contriesDashboardApp">
               <CountriesDashboardApp/>
           </Route>
-          <Route path="eventPageAssignment">
-            <EventPageApp/>
+          <Route path="/eventPageAssignment">
+            <EventPage/>
           </Route>
           <Route path="/">
             <Home />
