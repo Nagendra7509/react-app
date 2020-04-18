@@ -1,17 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
 import HomePage from "./components/HomePage";
 import Page1 from "./components/Page1";
-
-
 import TodosList from './components/TodosList/index.js';
 import CountriesStatus from './components/CountriesStatus/index.js';
-
 import CountriesDashboardApp from './components/CountriesDashboardApp/index.js';
-
-import EventPage from './stores/EventPageAssignment.js'
+import TodoApp from "./stores/TodoApp.js";
 import "./App.css";
+import GridMemoryGame from "./stores/GridGame/GridMemoryGame.js";
+
 
 
 const App = () => {
@@ -33,7 +30,10 @@ const App = () => {
               <Link to="/contriesDashboardApp">ContriesDashBoardApp</Link>
             </li>
             <li>
-              <Link to="/eventPageAssignment">EventPageAssignment</Link>
+              <Link to="/mobx-todo-app">TodosList-Mobx</Link>
+            </li>
+            <li>
+              <Link to="/grid-game">Grid Memory Game</Link>
             </li>
           </ul>
         </nav>
@@ -50,8 +50,11 @@ const App = () => {
           <Route path="/contriesDashboardApp">
               <CountriesDashboardApp/>
           </Route>
-          <Route path="/eventPageAssignment">
-            <EventPage/>
+          <Route path="/mobx-todo-app">
+            <TodoApp/>
+          </Route>
+          <Route path="/grid-game">
+            <GridMemoryGame/>
           </Route>
           <Route path="/">
             <Home />
@@ -63,7 +66,7 @@ const App = () => {
 };
 
 function Home() {
-  return <h2>Home</h2>;
+  return null;
 }
 
 export default App;
