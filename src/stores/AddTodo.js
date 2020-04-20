@@ -2,6 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import tw from "tailwind.macro";
 import { observable, action } from "mobx";
+import { observer } from "mobx-react";
 
 
 const InputTag = styled.input `
@@ -12,7 +13,7 @@ ${tw `w-1/3`}
 border:2px solid blue;
 background-color:green`;
 
-
+@observer
 class AddTodo extends React.Component {
     @observable todoTitle = "";
 
@@ -21,7 +22,7 @@ class AddTodo extends React.Component {
         this.todoTitle = event.target.value;
         if (event.key === "Enter") {
             if (event.target.value != "") {
-                this.props.onAddTodo(this.todoTitle);
+                this.props.onAddTodo(Math.random(), this.todoTitle, false);
                 event.target.value = "";
             }
             else {

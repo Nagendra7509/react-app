@@ -7,9 +7,11 @@ class TodoStore {
     @observable todoArray = [];
 
     @action.bound
-    onAddTodo(title) {
+    onAddTodo(id, title, isCompleted) {
         const todoInstance = new Todo();
         todoInstance.title = title;
+        todoInstance.id = id;
+        todoInstance.isCompleted = isCompleted;
         this.todos.push(todoInstance);
         this.todoArray.push(todoInstance);
     }
