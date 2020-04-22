@@ -38,8 +38,8 @@ class Cell extends React.Component {
         const { isClickedOnCell, shouldShowHiddenCell } = this;
         //if (cell.isHidden)
         //console.log(this.shouldShowHiddenCell)
-        let background = ((shouldShowHiddenCell || isClickedOnCell) && isHidden) ? selectedTheme.name == "Dark" ? "green" : "blue" :
-            (isClickedOnCell && !isHidden) ? "red" : `gray`;
+        let background = ((shouldShowHiddenCell || isClickedOnCell) && isHidden) ? selectedTheme.name == "Dark" ? "#38d6d0" : "#54ae7f" :
+            (isClickedOnCell && !isHidden) ? "#e53e3e" : `#4a5568`;
 
         return (<Grid
             background={background}

@@ -8,8 +8,9 @@ const Congratulation = styled.span `
     font-weight:bold;
     font-size:30px;`;
 const PlayAgainBtn = styled.button `
-    ${tw `bg-blue-800 p-2 rounded`}
+    ${tw ` p-2 rounded`}
     font-size:24px;
+    background:#5f7ee6;
     `;
 
 export { GameResultPage, Congratulation, PlayAgainBtn };

@@ -12,6 +12,7 @@ import tw from "tailwind.macro";
 /*global GET*/
 
 
+
 const TodoTitle = styled.div `
 ${tw `text-pink-400 text-center`}
 font-size:40px`;
@@ -36,16 +37,19 @@ class TodoApp extends React.Component {
         window.addEventListener('online', this.handleConnectionChange);
         window.addEventListener('offline', this.handleConnectionChange);
 
-        fetch(`https://jsonplaceholder.typicode.com/todo`)
+        fetch(`https://jsonplaceholder.typicode.com/todos`)
             .then(response => response.json())
             .then(json => {
-                if (json.length > 0 && this.dataFetched)
+                if (json.length && this.dataFetched)
                     json.map(obj => todoStore.onAddTodo(obj.id, obj.title, obj.completed));
                 else
                     this.notFound = true;
 
-            }).catch(error => console.log(error));
+            }).catch(error => console.log("error", error.message));
+
     }
+
+
 
     componentWillUnmount() {
         window.removeEventListener('online', this.handleConnectionChange);

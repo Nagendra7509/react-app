@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function Home() {
-    return (<nav>
+  return (<nav>
           <ul>
             <li>
               <Link to="/">Home</Link>
@@ -21,6 +21,12 @@ export default function Home() {
             </li>
             <li>
               <Link to="/grid-game">Grid Memory Game</Link>
+            </li>
+            <li>
+              <Link to="/practice">Hands on(LoadingWrapperWithFailure)</Link>
+            </li>
+            <li>
+              <Link to="/todoListNetworkCalls">Todo-List_WithNetworkCalls </Link>
             </li>
           </ul>
         </nav>);

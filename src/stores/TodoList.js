@@ -15,7 +15,7 @@ const NoDataFound = styled.div `
 class TodoList extends React.Component {
     render() {
         const url = "https://tap.ibhubs.in/react/assignments/assignment-10/preview/loading-view.png";
-        console.log(this.props.dataFetched);
+        //console.log(this.props.dataFetched);
         return (
             <ul>
                 {(this.props.todoArray.length>0 )

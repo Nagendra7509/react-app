@@ -16,7 +16,7 @@ class GridApp extends React.Component {
 
     constructor(props) {
         super(props);
-        gameStore.setGridCells();
+        setTimeout(gameStore.setGridCells, 500);
         this.timeIntervalId = 0;
         this.timeInterval();
     }
