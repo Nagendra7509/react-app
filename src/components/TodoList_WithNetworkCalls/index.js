@@ -1,6 +1,6 @@
 import React from "react";
 import { observer, inject } from "mobx-react";
-//import todoStore from "../../stores/TodoStore_NetworkCalls";
+import { action, autorun } from "mobx";
 import LoadingWrapperWithFailure from "../common/LoadingWrapperWithFailure/index.js";
 import NoDataView from "../common/NoDataView/index.js";
 import AddTodo from './AddTodo';
@@ -10,11 +10,9 @@ import { TodoTitle, TodosListApp } from "./styledIndex";
 
 
 
-import { action } from "mobx";
 
 
 @inject("todoStore")
-
 @observer
 class TodoAppNetworkCalls extends React.Component {
 
@@ -48,7 +46,6 @@ class TodoAppNetworkCalls extends React.Component {
 
 
     render() {
-
         const {
             getTodoListAPIStatus,
             getTodoListAPIError,
@@ -60,6 +57,7 @@ class TodoAppNetworkCalls extends React.Component {
             selectedFilter,
             onChangeSelectedFilter
         } = this.getTodoStore();
+
         return (
             <TodosListApp>
                 <TodoTitle>todo</TodoTitle>
