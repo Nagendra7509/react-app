@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Provider } from "mobx-react";
 import Home from "./components/Home";
 //import Page1 from "./components/Page1";
@@ -12,11 +12,17 @@ import GridMemoryGame from "./components/GridMemoryGame";
 import UserPage from "./components/UserPage/index.js";
 import stores from "./stores";
 import TodoAppNetworkCalls from "./components/TodoList_WithNetworkCalls";
+import LoginPage from "./components/LoginPage";
+import SignInPage from "./E_CommerceStore/Authentication/components/SignInPage/index";
+import storesFromAuth from "./Common/stores/index";
+import ProductsPage from "./E_CommerceStore/Products/components/ProductsPage/index";
+//{...storesFromAuth}
 
 
 const App = () => {
+  //console.log(storesFromAuth);
   return (
-    <Provider {...stores}>
+    <Provider {...stores} {...storesFromAuth} >
     <Router basename={process.env.PUBLIC_URL}>
       <div>
         {/* A <Switch> looks through its children <Route>s and
@@ -41,6 +47,9 @@ const App = () => {
           </Route>
           <Route exact path="/todoListNetworkCalls" component={TodoAppNetworkCalls}>
           </Route>
+          <Route exact path="/login" component={LoginPage}></Route>
+          <Route exact path="/signIn" component={SignInPage}></Route>
+          <Route exact path="/productPage" component={ProductsPage}></Route>
           <Route path="/">
             <Home />
           </Route>

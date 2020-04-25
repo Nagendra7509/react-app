@@ -1,8 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import { observable, action } from "mobx";
+import { observer } from "mobx-react"
 
-export default function Home() {
-  return (<nav>
+@observer
+export default class Home extends React.Component {
+
+  render() {
+
+    return ((<div>
+        <nav>
           <ul>
             <li>
               <Link to="/">Home</Link>
@@ -28,6 +35,18 @@ export default function Home() {
             <li>
               <Link to="/todoListNetworkCalls">Todo-List_WithNetworkCalls </Link>
             </li>
+            <li>
+              <Link to="/login">LoginPage</Link>
+            </li>
+            <li>
+              <Link to="/signIn">SignInPage</Link>
+            </li>
+            
+            <li>
+              <Link to="/productPage">Products Page</Link>
+            </li>
           </ul>
-        </nav>);
+        </nav>
+      </div>));
+  }
 }
