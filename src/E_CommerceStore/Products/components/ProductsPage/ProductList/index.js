@@ -1,16 +1,17 @@
 import React from "react";
 import { observer } from "mobx-react";
 import Product from "../Product";
+import { ProductsContainer } from "./styledComponent";
 
 @observer
 class ProductList extends React.Component {
 
     render() {
-        const { productList } = this.props;
+        const { products } = this.props;
         return (
-            <div className="flex flex-wrap">
-                    {productList.map(product=><Product key={Math.random()} product={product}/>)}
-                </div>
+            <ProductsContainer>
+                    {products.map(product=><Product key={product.productId.toString()} product={product}/>)}
+                </ProductsContainer>
         );
     }
 }

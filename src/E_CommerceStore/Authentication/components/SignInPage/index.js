@@ -31,8 +31,13 @@ class SignInPage extends React.Component {
     onClickSignIn() {
         if (this.username != "" && this.password != "") {
             this.props.authStore.userSignIn();
-            const { history } = this.props;
-            history.push('/productPage');
+            setTimeout(() => {
+                if (getAccessToken()) {
+                    const { history } = this.props;
+                    history.push('/productPage');
+                }
+            }, 1000);
+
         }
 
     }

@@ -1,8 +1,13 @@
 import React from "react";
 import { inject, observer } from "mobx-react";
+import ProductCart from "../../../Cart/components/ProductCart/index";
 import SizeFilter from "./SizeFilter/index";
 import Header from "./Header/index";
 import ProductList from "./ProductList";
+
+
+import { E_CommerceStore_App, HeaderPart, FilterAndProducts, SortFilterAndProducts, SignOutBtn } from "./styledComponent";
+
 
 @inject("authStore")
 @inject("productStore")
@@ -26,7 +31,7 @@ class ProductsPage extends React.Component {
     }
     render() {
         const {
-            productList,
+            products,
             getProductListAPIStatus,
             getProductListAPIError,
             productsAPIService,
@@ -36,12 +41,19 @@ class ProductsPage extends React.Component {
             onSelectSize,
             totalNoOfProductsDisplayed
         } = this.props.productStore;
-        return <div>
-                    <button onClick={this.onClickSignout}>sigout</button>
-                    <SizeFilter onSelectSize={onSelectSize}/>
-                    <Header totalNoOfProductsDisplayed={totalNoOfProductsDisplayed} onChangeSortBy={onChangeSortBy}/>
-                    <ProductList productList={productList} />
-                </div>;
+        return <E_CommerceStore_App>
+                    <HeaderPart>
+                        <SignOutBtn onClick={this.onClickSignout}>sigout</SignOutBtn>
+                        <ProductCart/>
+                    </HeaderPart>
+                    <FilterAndProducts>
+                        <SizeFilter onSelectSize={onSelectSize} sizeFilter={sizeFilter}/>
+                        <SortFilterAndProducts>
+                              <Header totalNoOfProductsDisplayed={totalNoOfProductsDisplayed} onChangeSortBy={onChangeSortBy}/>
+                              <ProductList products={products}  />
+                        </SortFilterAndProducts>
+                    </FilterAndProducts>
+                </E_CommerceStore_App>;
     }
 }
 

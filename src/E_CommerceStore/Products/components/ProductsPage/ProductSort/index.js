@@ -1,6 +1,8 @@
 import React from "react";
 import { observer } from "mobx-react";
 
+import { Sortlabel, Select, Option } from "./styledComponent";
+
 @observer
 class ProductSort extends React.Component {
     onChangeSortBy = (event) => {
@@ -10,13 +12,13 @@ class ProductSort extends React.Component {
 
     render() {
         return (
-            <div className="text-center">Sort price by:  
-                    <select className="rounded-md bg-white border border-gray-400" onChange={this.onChangeSortBy}>
-                        <option hidden="">Select</option>
-                        <option value="ASCENDING" className="focus:outline-none">Lowest to highest</option>
-                        <option value="DESCENDING" className="focus:outline-none">Highest to lowest</option>
-                    </select>
-                </div>
+            <Sortlabel>Sort price by:  
+                    <Select className="rounded-md bg-white border border-gray-400" onChange={this.onChangeSortBy}>
+                        <Option hidden={true}>Select</Option>
+                        <Option value="ASCENDING" className="focus:outline-none">Lowest to highest</Option>
+                        <Option value="DESCENDING" className="focus:outline-none">Highest to lowest</Option>
+                    </Select>
+                </Sortlabel>
         );
     }
 }

@@ -40,11 +40,7 @@ class ProductStore {
 
     @action.bound
     setProductListResponse(response) {
-
-        response.map(eachProduct => {
-            const product = new Product(eachProduct);
-            this.productList.push(product);
-        });
+        this.productList = response.map(eachProduct => (new Product(eachProduct)));
     }
 
     @action.bound
@@ -54,7 +50,6 @@ class ProductStore {
 
     @action.bound
     onChangeSortBy(filterType) {
-        console.log(filterType);
         this.sortBy = filterType;
     }
 
@@ -66,20 +61,41 @@ class ProductStore {
         else {
             this.sizeFilter = this.sizeFilter.filter(type => type != sizeType);
         }
-
+    }
+    @computed get products() {
+        return this.sortedAndFilteredProducts;
     }
 
-    /*@computed products() {
+    @computed get sortedAndFilteredProducts() {
+
+        let filteredSizesList = [];
+        if (this.sizeFilter.length !== 0)
+            this.sizeFilter.forEach(size => {
+                this.productList.map(product => {
+                    if (product.availableSizes.includes(size)) {
+                        filteredSizesList.push(product);
+                    }
+                });
+            });
+        else filteredSizesList = [...this.productList];
+        filteredSizesList = [...new Set(filteredSizesList.map(x => x))];
+
+
+        switch (this.sortBy) {
+            case "ASCENDING":
+                let ascending = filteredSizesList.sort((a, b) => a.price - b.price);
+                return ascending;
+            case "DESCENDING":
+                let descending = filteredSizesList.sort((a, b) => a.price - b.price);
+                return descending.reverse();
+            default:
+                return filteredSizesList;
+        }
 
     }
-
-    @computed sortedAndFilteredProducts() {
-
-    }*/
 
     @computed get totalNoOfProductsDisplayed() {
-        console.log(this.productList);
-        return this.productList.length;
+        return this.products.length;
     }
 }
 
