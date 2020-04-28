@@ -8410,12 +8410,28 @@ video {
   width: 20%;
 }
 
+.w-23\% {
+  width: 23%;
+}
+
+.w-30\% {
+  width: 30%;
+}
+
 .w-2\/5 {
   width: 40%;
 }
 
+.w-46\% {
+  width: 46%;
+}
+
 .w-3\/5 {
   width: 60%;
+}
+
+.w-65\% {
+  width: 65%;
 }
 
 .w-4\/5 {
@@ -8488,6 +8504,10 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.w-50vh {
+  width: 50vw;
 }
 
 .w-screen {
@@ -18731,12 +18751,28 @@ code {
     width: 20%;
   }
 
+  .sm\:w-23\% {
+    width: 23%;
+  }
+
+  .sm\:w-30\% {
+    width: 30%;
+  }
+
   .sm\:w-2\/5 {
     width: 40%;
   }
 
+  .sm\:w-46\% {
+    width: 46%;
+  }
+
   .sm\:w-3\/5 {
     width: 60%;
+  }
+
+  .sm\:w-65\% {
+    width: 65%;
   }
 
   .sm\:w-4\/5 {
@@ -18809,6 +18845,10 @@ code {
 
   .sm\:w-full {
     width: 100%;
+  }
+
+  .sm\:w-50vh {
+    width: 50vw;
   }
 
   .sm\:w-screen {
@@ -29039,12 +29079,28 @@ code {
     width: 20%;
   }
 
+  .md\:w-23\% {
+    width: 23%;
+  }
+
+  .md\:w-30\% {
+    width: 30%;
+  }
+
   .md\:w-2\/5 {
     width: 40%;
   }
 
+  .md\:w-46\% {
+    width: 46%;
+  }
+
   .md\:w-3\/5 {
     width: 60%;
+  }
+
+  .md\:w-65\% {
+    width: 65%;
   }
 
   .md\:w-4\/5 {
@@ -29117,6 +29173,10 @@ code {
 
   .md\:w-full {
     width: 100%;
+  }
+
+  .md\:w-50vh {
+    width: 50vw;
   }
 
   .md\:w-screen {
@@ -39347,12 +39407,28 @@ code {
     width: 20%;
   }
 
+  .lg\:w-23\% {
+    width: 23%;
+  }
+
+  .lg\:w-30\% {
+    width: 30%;
+  }
+
   .lg\:w-2\/5 {
     width: 40%;
   }
 
+  .lg\:w-46\% {
+    width: 46%;
+  }
+
   .lg\:w-3\/5 {
     width: 60%;
+  }
+
+  .lg\:w-65\% {
+    width: 65%;
   }
 
   .lg\:w-4\/5 {
@@ -39425,6 +39501,10 @@ code {
 
   .lg\:w-full {
     width: 100%;
+  }
+
+  .lg\:w-50vh {
+    width: 50vw;
   }
 
   .lg\:w-screen {
@@ -49655,12 +49735,28 @@ code {
     width: 20%;
   }
 
+  .xl\:w-23\% {
+    width: 23%;
+  }
+
+  .xl\:w-30\% {
+    width: 30%;
+  }
+
   .xl\:w-2\/5 {
     width: 40%;
   }
 
+  .xl\:w-46\% {
+    width: 46%;
+  }
+
   .xl\:w-3\/5 {
     width: 60%;
+  }
+
+  .xl\:w-65\% {
+    width: 65%;
   }
 
   .xl\:w-4\/5 {
@@ -49733,6 +49829,10 @@ code {
 
   .xl\:w-full {
     width: 100%;
+  }
+
+  .xl\:w-50vh {
+    width: 50vw;
   }
 
   .xl\:w-screen {
