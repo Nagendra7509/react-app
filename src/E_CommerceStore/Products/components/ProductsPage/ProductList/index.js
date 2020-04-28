@@ -7,10 +7,10 @@ import { ProductsContainer } from "./styledComponent";
 class ProductList extends React.Component {
 
     render() {
-        const { products } = this.props;
+        const { products, onClickAddToCart } = this.props;
         return (
             <ProductsContainer>
-                    {products.map(product=><Product key={product.productId.toString()} product={product}/>)}
+                    {products.map(product=><Product key={product.productId.toString()} onClickAddToCart={onClickAddToCart} product={product}/>)}
                 </ProductsContainer>
         );
     }

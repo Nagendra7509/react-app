@@ -26,6 +26,7 @@ class ProductStore {
 
     @action.bound
     getProductList() {
+
         const productPromise = this.productsAPIService.getProductsAPI();
 
         return bindPromiseWithOnSuccess(productPromise)

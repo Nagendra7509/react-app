@@ -1,6 +1,6 @@
 import React from "react";
-
 import { observer } from "mobx-react";
+import { CheckoutBtn } from "./styledComponent";
 
 
 @observer
@@ -8,8 +8,9 @@ class CheckoutButton extends React.Component {
 
     render() {
         const { clearCart, cartProductList } = this.props;
+        console.log(cartProductList);
         return (
-            <button onClick={clearCart} disabled={cartProductList.length>0?false:true} class="bg-black w-full py-2 text-white my-4 rounded  focus:outline-none">CHECKOUT</button>
+            <CheckoutBtn onClick={clearCart} opacity={cartProductList.length>0?1:0.4} disabled={cartProductList.length>0?false:true} >CHECKOUT</CheckoutBtn>
         );
     }
 }

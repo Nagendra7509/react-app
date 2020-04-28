@@ -1,25 +1,35 @@
 import React from "react";
 import { observable, action } from "mobx";
+import { Redirect } from "react-router-dom";
 import { observer, inject } from "mobx-react";
+import { getAccessToken } from "../../utils/StorageUtils";
+import svgImg from "../../../../Common/SvgImg/Rolling-1s-200px.svg"
+import {
+    SignInPageDiv,
+    SignInForm,
+    SignInText,
+    UserName,
+    Password,
+    SignInBtn,
+    ErrorMessage
+}
+from "./styledComponent";
 
-import { getAccessToken, clearUserSession } from "../../utils/StorageUtils";
-import styled from "@emotion/styled";
-import tw from "tailwind.macro";
 
 @inject("authStore")
-
 @observer
 class SignInPage extends React.Component {
 
     @observable username = "";
     @observable password = "";
     @observable errorMessage = "";
+    @observable isClicked = false
+
 
 
     @action.bound
     onChangeUsername(event) {
         this.username = event.target.value;
-        //console.log(this.username);
     }
 
     @action.bound
@@ -30,29 +40,40 @@ class SignInPage extends React.Component {
     @action.bound
     onClickSignIn() {
         if (this.username != "" && this.password != "") {
+            this.isClicked = true;
             this.props.authStore.userSignIn();
             setTimeout(() => {
                 if (getAccessToken()) {
                     const { history } = this.props;
-                    history.push('/productPage');
+                    history.push('/ecommerce-store/products/');
                 }
             }, 1000);
 
+        }
+        else if (this.username === "") {
+            this.errorMessage = "please Enter Username";
+        }
+        else {
+            this.errorMessage = "please Enter Password";
         }
 
     }
 
     render() {
-        return (<div className="flex justify-center items-center h-screen bg-gray-200">
-                        <form className="flex flex-col p-8 bg-white">
-                            <h2 className="font-bold mb-4">Sign in</h2>
-                            <input onChange={this.onChangeUsername} type="text" className="border border-gray-400 mb-3 w-48 h-10 pl-2 focus:outline-none rounded" placeholder="Username" />
-                            <input onChange={this.onChangePassword} type="password" className="border border-gray-400 mb-3 w-48 h-10 pl-2 focus:outline-none rounded" placeholder="Password"/>
-                            <button className="flex justify-center w-48 h-10 rounded bg-gray-900 text-white focus:outline-none cursor-pointer" type="button" onClick={this.onClickSignIn}>
-                                <span className="">Sign in</span>
-                            </button>
-                        </form>
-                    </div>);
+        if (getAccessToken()) {
+            return <Redirect to ={{pathname:'/ecommerce-store/products/'}}/>
+        }
+        return (<SignInPageDiv>
+                    <SignInForm>
+                        <SignInText>Sign in</SignInText>
+                        <UserName onChange={this.onChangeUsername} type="text" placeholder="Username" />
+                        <Password onChange={this.onChangePassword} type="password" placeholder="Password"/>
+                        <SignInBtn type="button" onClick={this.onClickSignIn} data-testid='sign-in-button' >
+                                {this.isClicked?"Loading....":"Sign in"}
+                        </SignInBtn>
+                        <ErrorMessage>{this.errorMessage}</ErrorMessage>
+                    </SignInForm>
+                </SignInPageDiv>);
 
 
     }

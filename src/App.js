@@ -16,6 +16,8 @@ import LoginPage from "./components/LoginPage";
 import SignInPage from "./E_CommerceStore/Authentication/components/SignInPage/index";
 import storesFromAuth from "./Common/stores/index";
 import ProductsPage from "./E_CommerceStore/Products/components/ProductsPage/index";
+import { authenticationRoutes } from "./E_CommerceStore/Authentication/routes/index";
+import { productsRoutes } from ".//E_CommerceStore/Products/routes/index"
 //{...storesFromAuth}
 
 
@@ -48,8 +50,11 @@ const App = () => {
           <Route exact path="/todoListNetworkCalls" component={TodoAppNetworkCalls}>
           </Route>
           <Route exact path="/login" component={LoginPage}></Route>
-          <Route exact path="/signIn" component={SignInPage}></Route>
-          <Route exact path="/productPage" component={ProductsPage}></Route>
+          {/*<Route exact path="/ecommerce-store/sign-in/" component={SignInPage}></Route>
+          <Route exact path="/ecommerce-store/products/" component={ProductsPage}></Route>*/}
+          {authenticationRoutes}
+          {productsRoutes}
+          
           <Route path="/">
             <Home />
           </Route>

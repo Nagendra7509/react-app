@@ -8,7 +8,7 @@ class CartList extends React.Component {
 
     render() {
         const { onRemoveCartItem, cartProductList, getProductDetailsById } = this.props;
-        return cartProductList.map(cartProductItem => <CartItem  getProductDetailsById={getProductDetailsById} cartProductItem={cartProductItem} onRemoveCartItem={onRemoveCartItem}/>);
+        return cartProductList.map(cartProductItem => <CartItem key={cartProductItem.cartItemId.toString()}  getProductDetailsById={getProductDetailsById} cartProductItem={cartProductItem} onRemoveCartItem={onRemoveCartItem}/>);
     }
 }
 

@@ -1,4 +1,4 @@
-import { observable, action, computed, toJS } from "mobx";
+import { observable, action, computed } from "mobx";
 import CartItem from "../models/CartItem/index";
 
 class CartStore {
@@ -30,13 +30,21 @@ class CartStore {
 
     @action.bound
     onRemoveCartItem(id) {
+        this.cartProductList.forEach(cartItem => {
+            if (cartItem.cartItemId == id) {
+                this.productIdList.splice(this.productIdList.indexOf(cartItem.productId), 1);
+            }
+        });
+
         this.cartProductList = this.cartProductList.filter(cartItem => cartItem.cartItemId != id);
+
     }
 
     @action.bound
     clearCart() {
         this.cartProductList = [];
         this.productIdList = [];
+        alert('Thank You For Shipping With Us.\nYour Products will be delivered in 3 days to the adress mentioned in your profile.');
 
     }
 

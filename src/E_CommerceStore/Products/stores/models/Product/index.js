@@ -1,6 +1,5 @@
 import { observable } from "mobx";
 
-
 class Product {
 
     @observable productId
@@ -31,19 +30,3 @@ class Product {
 }
 
 export default Product;
-
-
-
-/*
-availableSizes: (2) ["S", "XS"]
-currencyFormat: "₹"
-currencyId: "USD"
-description: "4 MSL"
-id: 12
-installments: 9
-isFreeShipping: true
-price: 845.24
-sku: 12064273040195392
-style: "Black with custom print"
-title: "Cat Tee Black T-Shirt"
-image: "https://react-shopping-cart-6795*/

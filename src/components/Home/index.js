@@ -39,11 +39,7 @@ export default class Home extends React.Component {
               <Link to="/login">LoginPage</Link>
             </li>
             <li>
-              <Link to="/signIn">SignInPage</Link>
-            </li>
-            
-            <li>
-              <Link to="/productPage">Products Page</Link>
+              <Link to="/ecommerce-store/sign-in/">SignInPage</Link>
             </li>
           </ul>
         </nav>

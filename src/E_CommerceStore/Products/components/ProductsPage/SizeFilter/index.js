@@ -1,5 +1,4 @@
 import React from "react";
-
 import { inject, observer } from "mobx-react";
 import { SizesButtons, SizesLabel, SizeBtn } from "./styledComponent";
 
@@ -15,7 +14,6 @@ class SizeFilter extends React.Component {
 
     render() {
         const { sizeFilter } = this.props;
-        //console.log(sizeFilter);
         return (<SizesButtons>
                         <SizesLabel>Sizes:</SizesLabel>
                               <SizeBtn onClick={this.onClickSelectSize} isClicked={sizeFilter.indexOf('XS')!==-1} value="XS" >XS</SizeBtn>
@@ -27,6 +25,5 @@ class SizeFilter extends React.Component {
                   </SizesButtons>);
     }
 }
-//isClicked={SizeFilter.indexOf('M')!==-1
 
 export default SizeFilter;
