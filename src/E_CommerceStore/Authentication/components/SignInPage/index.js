@@ -3,7 +3,6 @@ import { observable, action } from "mobx";
 import { Redirect } from "react-router-dom";
 import { observer, inject } from "mobx-react";
 import { getAccessToken } from "../../utils/StorageUtils";
-import svgImg from "../../../../Common/SvgImg/Rolling-1s-200px.svg"
 import {
     SignInPageDiv,
     SignInForm,

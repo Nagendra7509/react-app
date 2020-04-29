@@ -1,8 +1,7 @@
 import React from "react";
 import { inject, observer } from "mobx-react";
 import { Redirect } from "react-router-dom";
-import { ToastContainer, toast, Slide } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import CookieConsent from "react-cookie-consent";
 import LoadingWrapperWithFailure from "../../../../Common/LoadingWrapper/LoadingWrapperWithFailure/index";
 import NoDataView from "../../../../Common/LoadingWrapper/NoDataView/index";
 import ProductCart from "../../../Cart/components/ProductCart/index";
@@ -73,7 +72,9 @@ class ProductsPage extends React.Component {
                               />
                         </SortFilterAndProducts>
                     </FilterAndProducts>
-                    
+                    <CookieConsent>
+                        This website uses cookies to enhance the user experience.
+                    </CookieConsent>
                 </E_CommerceStore_App>);
         }
 
