@@ -16,12 +16,36 @@ class SizeFilter extends React.Component {
         const { sizeFilter } = this.props;
         return (<SizesButtons>
                         <SizesLabel>Sizes:</SizesLabel>
-                              <SizeBtn onClick={this.onClickSelectSize} isClicked={sizeFilter.indexOf('XS')!==-1} value="XS" >XS</SizeBtn>
-                              <SizeBtn onClick={this.onClickSelectSize} isClicked={sizeFilter.indexOf('S')!==-1} value="S" >S</SizeBtn>
-                              <SizeBtn onClick={this.onClickSelectSize} isClicked={sizeFilter.indexOf('M')!==-1} value="M" >M</SizeBtn>
-                              <SizeBtn onClick={this.onClickSelectSize} isClicked={sizeFilter.indexOf('L')!==-1} value="L" >L</SizeBtn>
-                              <SizeBtn onClick={this.onClickSelectSize} isClicked={sizeFilter.indexOf('XL')!==-1} value="XL" >XL</SizeBtn>
-                              <SizeBtn onClick={this.onClickSelectSize} isClicked={sizeFilter.indexOf('XXL')!==-1} value="XXL" >XXL</SizeBtn>
+                            <SizeBtn 
+                                onClick={this.onClickSelectSize} 
+                                isClicked={sizeFilter.indexOf('XS')!==-1} 
+                                value="XS" >XS
+                            </SizeBtn>
+                            <SizeBtn 
+                                onClick={this.onClickSelectSize} 
+                                isClicked={sizeFilter.indexOf('S')!==-1} 
+                                value="S" >S
+                            </SizeBtn>
+                            <SizeBtn 
+                                onClick={this.onClickSelectSize} 
+                                isClicked={sizeFilter.indexOf('M')!==-1} 
+                                value="M" >M
+                            </SizeBtn>
+                            <SizeBtn 
+                                onClick={this.onClickSelectSize} 
+                                isClicked={sizeFilter.indexOf('L')!==-1} 
+                                value="L" >L
+                            </SizeBtn>
+                            <SizeBtn 
+                                onClick={this.onClickSelectSize} 
+                                isClicked={sizeFilter.indexOf('XL')!==-1} 
+                                value="XL" >XL
+                            </SizeBtn>
+                            <SizeBtn 
+                                onClick={this.onClickSelectSize} 
+                                isClicked={sizeFilter.indexOf('XXL')!==-1} 
+                                value="XXL" >XXL
+                            </SizeBtn>
                   </SizesButtons>);
     }
 }

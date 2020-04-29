@@ -3,7 +3,8 @@ import tw from "tailwind.macro";
 
 
 const CartContainer = styled.div `
-    ${tw `flex  fixed  top-0 right-0 z-10 sm:w-2/3 md:w-1/3  overflow-x-hidden h-full flex-1`}`;
+    ${tw `flex  fixed  top-0 right-0 z-10 sm:w-2/3 md:w-1/3  overflow-x-hidden h-full flex-1`}
+    transition:2s`;
 const CloseBtn = styled.button `
     ${tw `h-10 p-3 text-white bg-gray-800 focus:outline-none active:outline-none leading-none`}`;
 const CartItemsAndBill = styled.div `

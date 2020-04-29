@@ -2,13 +2,14 @@ import { observable } from "mobx";
 
 
 class CartItem {
+
     @observable cartItemId
     @observable productId
     @observable quantity
 
-    constructor(product) {
+    constructor(productId) {
         this.cartItemId = Math.random();
-        this.productId = product.productId;
+        this.productId = productId;
         this.quantity = 1;
     }
 

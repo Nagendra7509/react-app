@@ -2,14 +2,24 @@ import React from "react";
 import { inject, observer } from "mobx-react";
 import { Redirect } from "react-router-dom";
 import CookieConsent from "react-cookie-consent";
+import { ToastContainer, Slide } from 'react-toastify';
 import LoadingWrapperWithFailure from "../../../../Common/LoadingWrapper/LoadingWrapperWithFailure/index";
 import NoDataView from "../../../../Common/LoadingWrapper/NoDataView/index";
 import ProductCart from "../../../Cart/components/ProductCart/index";
 import { getAccessToken } from "../../../Authentication/utils/StorageUtils";
+//import MenuPage from "../../../Menu/components/MenuPage/index";
 import SizeFilter from "./SizeFilter/index";
 import Header from "./Header/index";
 import ProductList from "./ProductList";
-import { E_CommerceStore_App, HeaderPart, FilterAndProducts, SortFilterAndProducts, SignOutBtn } from "./styledComponent";
+import {
+    E_CommerceStore_App,
+    HeaderPart,
+    FilterAndProducts,
+    SortFilterAndProducts,
+    SignOutBtn,
+
+}
+from "./styledComponent";
 
 
 @inject("authStore")
@@ -51,19 +61,25 @@ class ProductsPage extends React.Component {
             sizeFilter,
             onChangeSortBy,
             onSelectSize,
-            totalNoOfProductsDisplayed
+            totalNoOfProductsDisplayed,
+            onChangeSearchText
         } = this.props.productStore;
 
         if (getAccessToken()) {
             return (<E_CommerceStore_App>
                     <HeaderPart>
+                        {/*<MenuPage onClickSignout={this.onClickSignout} />*/}
                         <SignOutBtn onClick={this.onClickSignout}>sigout</SignOutBtn>
                         <ProductCart/>
                     </HeaderPart>
                     <FilterAndProducts>
                         <SizeFilter onSelectSize={onSelectSize} sizeFilter={sizeFilter}/>
                         <SortFilterAndProducts>
-                              <Header totalNoOfProductsDisplayed={totalNoOfProductsDisplayed} onChangeSortBy={onChangeSortBy}/>
+                              <Header 
+                                totalNoOfProductsDisplayed={totalNoOfProductsDisplayed}
+                                onChangeSearchText={onChangeSearchText} 
+                                onChangeSortBy={onChangeSortBy}
+                               />
                               <LoadingWrapperWithFailure
                                 apiStatus={getProductListAPIStatus}
                                 apiError={getProductListAPIError}
@@ -75,6 +91,14 @@ class ProductsPage extends React.Component {
                     <CookieConsent>
                         This website uses cookies to enhance the user experience.
                     </CookieConsent>
+                   <ToastContainer 
+                        position="bottom-center"
+                        hideProgressBar={true} 
+                        autoClose={3000} 
+                        closeButton={false} 
+                        transition={Slide}
+                        newestOnTop={false}
+                    />
                 </E_CommerceStore_App>);
         }
 

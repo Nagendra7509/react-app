@@ -4,6 +4,7 @@ import { Sortlabel, Select, Option } from "./styledComponent";
 
 @observer
 class ProductSort extends React.Component {
+
     onChangeSortBy = (event) => {
         const { onChangeSortBy } = this.props;
         onChangeSortBy(event.target.value);

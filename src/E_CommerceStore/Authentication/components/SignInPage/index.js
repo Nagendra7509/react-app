@@ -60,7 +60,7 @@ class SignInPage extends React.Component {
 
     render() {
         if (getAccessToken()) {
-            return <Redirect to ={{pathname:'/ecommerce-store/products/'}}/>
+            return <Redirect to ={{pathname:'/ecommerce-store/products/'}}/>;
         }
         return (<SignInPageDiv>
                     <SignInForm>

@@ -28,7 +28,7 @@ class GameStore {
             this.incrementSelectedCellsCount();
         }
         else {
-            setTimeout(this.goToInitialLevelUpdateCells, 500);
+            this.goToInitialLevelUpdateCells;
         }
     }
 

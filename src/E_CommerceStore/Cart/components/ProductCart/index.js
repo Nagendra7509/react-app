@@ -20,24 +20,21 @@ from "./styledComponent";
 
 
 @inject('cartStore')
-
 @observer
 class ProductCart extends React.Component {
+
     @observable shouldDisplayCart = false;
 
     @action.bound
     showCart() {
-
+        this.shouldDisplayCart = true;
     }
 
     @action.bound
     hideCart() {
-
+        this.shouldDisplayCart = false;
     }
 
-    onClickCart = () => {
-        this.shouldDisplayCart = !this.shouldDisplayCart;
-    }
 
     render() {
         const {
@@ -53,7 +50,7 @@ class ProductCart extends React.Component {
             <div>
                         {this.shouldDisplayCart?
                               <CartContainer>
-                                    <CloseBtn onClick={this.onClickCart} data-testid='cart-close-button' >X</CloseBtn>
+                                    <CloseBtn onClick={this.hideCart} data-testid='cart-close-button' >X</CloseBtn>
                                     <CartItemsAndBill>
                                           <CartIconWithTitle>
                                                 <Icon>
@@ -77,7 +74,7 @@ class ProductCart extends React.Component {
                                     </CartItemsAndBill>
                                 </CartContainer>
                               :
-                              <CartIconDiv  onClick={this.onClickCart} data-testid='cart-open-button'>
+                              <CartIconDiv  onClick={this.showCart} data-testid='cart-open-button'>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className=" feather feather-shopping-cart pt-2">
                                         <circle cx="9" cy="21" r="1"></circle>
                                         <circle cx="20" cy="21" r="1"></circle>

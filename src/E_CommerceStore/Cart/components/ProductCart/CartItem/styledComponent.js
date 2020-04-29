@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
 import tw from "tailwind.macro";
 
+const ProductInCart = styled.div `
+    ${tw }`;
 const CartItemDiv = styled.div `
     ${tw `flex text-sm my-2 items-center relative`}`;
 const RemoveCartItemBtn = styled.button `
@@ -20,6 +22,7 @@ const Price = styled.p `
 
 
 export {
+    ProductInCart,
     CartItemDiv,
     RemoveCartItemBtn,
     ProductImg,

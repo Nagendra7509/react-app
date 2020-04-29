@@ -1,7 +1,7 @@
 import React from "react";
 import { observer } from "mobx-react";
-
 import {
+    ProductInCart,
     CartItemDiv,
     RemoveCartItemBtn,
     ProductImg,
@@ -24,10 +24,14 @@ class CartItem extends React.Component {
 
 
     render() {
+
         const { cartProductItem, getProductDetailsById } = this.props;
         const productDetails = getProductDetailsById(cartProductItem.productId);
 
-        return (<CartItemDiv>
+        return (<ProductInCart>
+                    <hr/>
+                <CartItemDiv>
+                
                         <RemoveCartItemBtn data-testid='remove-cart-item' onClick={this.onRemoveCartItem} id={cartProductItem.cartItemId}>x</RemoveCartItemBtn>
                         <ProductImg src={productDetails.imageURL} alt="Cat Tee Black T-Shirt"/>
                         <ProductDetailsDiv>
@@ -36,7 +40,8 @@ class CartItem extends React.Component {
                               <ProductQuantity>Quantity: {cartProductItem.quantity}</ProductQuantity>
                         </ProductDetailsDiv>
                         <Price>₹ {productDetails.price}</Price>
-                </CartItemDiv>);
+                </CartItemDiv>
+                </ProductInCart>);
 
     }
 }

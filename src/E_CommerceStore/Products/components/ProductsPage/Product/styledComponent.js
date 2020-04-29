@@ -22,6 +22,22 @@ const Installments = styled.p `
     ${tw `text-sm text-gray-700 mb-4 h-5`}`;
 const AddToCartBtn = styled.button `
     ${tw `w-full py-3 text-white bg-black text-center rounded text-sm focus:outline-none`}`;
+const Toaster = styled.div `
+    ${tw `flex justify-center`}`;
+const ToastMessage = styled.span `
+    ${tw `pt-1`}`;
 
-
-export { ProductCard, FreeShipping, ProductImg, ProductTitle, YelloWDash, Price, CurrencyFormat, PriceValue, Installments, AddToCartBtn };
+export {
+    ProductCard,
+    FreeShipping,
+    ProductImg,
+    ProductTitle,
+    YelloWDash,
+    Price,
+    CurrencyFormat,
+    PriceValue,
+    Installments,
+    AddToCartBtn,
+    Toaster,
+    ToastMessage
+};

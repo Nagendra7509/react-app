@@ -4,12 +4,14 @@ import { bindPromiseWithOnSuccess } from "@ib/mobx-promise";
 import Product from "../models/Product/index";
 
 class ProductStore {
+
     @observable productList
     @observable getProductListAPIStatus
     @observable getProductListAPIError
     @observable productsAPIService
     @observable sizeFilter
     @observable sortBy
+    @observable searchText
 
     constructor(productsAPIService) {
         this.init();
@@ -22,6 +24,8 @@ class ProductStore {
         this.getProductListAPIError = null;
         this.sizeFilter = [];
         this.sortBy = "SELECT";
+        this.searchText = "";
+
     }
 
     @action.bound
@@ -63,11 +67,19 @@ class ProductStore {
             this.sizeFilter = this.sizeFilter.filter(type => type != sizeType);
         }
     }
+
+    @action.bound
+    onChangeSearchText(value) {
+        this.searchText = value;
+    }
+
+
     @computed get products() {
         return this.sortedAndFilteredProducts;
     }
 
     @computed get sortedAndFilteredProducts() {
+
 
         let filteredSizesList = [];
         if (this.sizeFilter.length !== 0)
@@ -81,6 +93,10 @@ class ProductStore {
         else filteredSizesList = [...this.productList];
         filteredSizesList = [...new Set(filteredSizesList.map(x => x))];
 
+        if (this.searchText != "") {
+            filteredSizesList = filteredSizesList.filter(obj => obj.title.toLowerCase().includes(this.searchText.toLowerCase()));
+        }
+
 
         switch (this.sortBy) {
             case "ASCENDING":
@@ -90,6 +106,7 @@ class ProductStore {
                 let descending = filteredSizesList.sort((a, b) => a.price - b.price);
                 return descending.reverse();
             default:
+                console.log(filteredSizesList);
                 return filteredSizesList;
         }
 

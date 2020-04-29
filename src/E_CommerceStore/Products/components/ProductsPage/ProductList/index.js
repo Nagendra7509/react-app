@@ -10,7 +10,11 @@ class ProductList extends React.Component {
         const { products, onClickAddToCart } = this.props;
         return (
             <ProductsContainer>
-                    {products.map(product=><Product key={product.productId.toString()} onClickAddToCart={onClickAddToCart} product={product}/>)}
+                    {products.map(product=><Product 
+                                                key={product.productId.toString()}
+                                                onClickAddToCart={onClickAddToCart} 
+                                                product={product}
+                                            />)}
                 </ProductsContainer>
         );
     }

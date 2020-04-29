@@ -17,9 +17,11 @@ import SignInPage from "./E_CommerceStore/Authentication/components/SignInPage/i
 import storesFromAuth from "./Common/stores/index";
 import ProductsPage from "./E_CommerceStore/Products/components/ProductsPage/index";
 import { authenticationRoutes } from "./E_CommerceStore/Authentication/routes/index";
-import { productsRoutes } from ".//E_CommerceStore/Products/routes/index"
+import { productsRoutes } from "./E_CommerceStore/Products/routes/index";
 //{...storesFromAuth}
 
+
+//import { yourPageRoute } from "./E_CommerceStore/Menu/routes/index";
 
 const App = () => {
   //console.log(storesFromAuth);
@@ -54,6 +56,7 @@ const App = () => {
           <Route exact path="/ecommerce-store/products/" component={ProductsPage}></Route>*/}
           {authenticationRoutes}
           {productsRoutes}
+          {/*{yourPageRoute}*/}
           
           <Route path="/">
             <Home />

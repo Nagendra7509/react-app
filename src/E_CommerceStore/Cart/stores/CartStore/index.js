@@ -2,6 +2,7 @@ import { observable, action, computed } from "mobx";
 import CartItem from "../models/CartItem/index";
 
 class CartStore {
+
     @observable cartProductList
     @observable productStore
 
@@ -12,18 +13,18 @@ class CartStore {
     }
 
     @action.bound
-    onClickAddToCart(id) {
-        if (this.productIdList.includes(id)) {
+    onClickAddToCart(productId) {
+        if (this.productIdList.includes(productId)) {
             this.cartProductList.map(cartItem => {
-                if (cartItem.productId == id) {
+                if (cartItem.productId == productId) {
                     cartItem.incrementQuantity();
                 }
             });
         }
         else {
-            const product = this.getProductDetailsById(id);
+            const product = this.getProductDetailsById(productId);
             this.productIdList.push(product.productId);
-            this.cartProductList.push(new CartItem(product));
+            this.cartProductList.push(new CartItem(product.productId));
         }
 
     }
@@ -44,14 +45,13 @@ class CartStore {
     clearCart() {
         this.cartProductList = [];
         this.productIdList = [];
-        alert('Thank You For Shipping With Us.\nYour Products will be delivered in 3 days to the adress mentioned in your profile.');
+        alert('Thank you for shopping with Us.\nYour Products will be delivered in 3 days to the address mentioned in your profile.');
 
     }
-
     @action.bound
-    getProductDetailsById(id) {
-        let productsList = this.productStore.products;
-        return productsList.find(product => product.productId == id);
+    getProductDetailsById(productId) {
+        let productsList = this.productStore.productList;
+        return productsList.find(product => product.productId == productId);
     }
 
     @computed get totalCartAmount() {

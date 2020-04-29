@@ -6,7 +6,9 @@ import { SubTotalDiv, SubTotalText, TotalAmount } from "./styledComponent";
 class SubTotal extends React.Component {
 
     render() {
+
         const { totalCartAmount } = this.props;
+
         return (<SubTotalDiv>
                     <SubTotalText>SUBTOTAL</SubTotalText>
                     <TotalAmount>₹ {totalCartAmount}</TotalAmount>
