@@ -50,10 +50,10 @@ class SignInPage extends React.Component {
 
         }
         else if (this.username === "") {
-            this.errorMessage = "please Enter Username";
+            this.errorMessage = "Please enter username";
         }
         else {
-            this.errorMessage = "please Enter Password";
+            this.errorMessage = "Please enter password";
         }
 
     }
