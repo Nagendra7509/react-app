@@ -20,6 +20,8 @@ from "./styledComponent";
 
 
 @inject('cartStore')
+
+
 @observer
 class ProductCart extends React.Component {
 

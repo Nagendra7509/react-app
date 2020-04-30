@@ -33,6 +33,9 @@ export default class Home extends React.Component {
               <Link to="/practice">Hands on(LoadingWrapperWithFailure)</Link>
             </li>
             <li>
+              <Link to="/practicePage">Practice</Link>
+            </li>
+            <li>
               <Link to="/todoListNetworkCalls">Todo-List_WithNetworkCalls </Link>
             </li>
             <li>

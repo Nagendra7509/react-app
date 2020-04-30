@@ -11,7 +11,7 @@ const ProductImg = styled.img `
 const ProductTitle = styled.p `
     ${tw `h-45px text-center text-sm`}`;
 const YelloWDash = styled.div `
-    ${tw `w-4 border-t-2 rounded border-yellow-600 mt-2px mb-4`}`;
+    ${tw `w-4 border-t-2 rounded border-yellow-600 mt-2 mb-4`}`;
 const Price = styled.p `
     ${tw `text-sm`}`;
 const CurrencyFormat = styled.span `

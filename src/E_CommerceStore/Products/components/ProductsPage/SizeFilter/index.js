@@ -18,32 +18,32 @@ class SizeFilter extends React.Component {
                         <SizesLabel>Sizes:</SizesLabel>
                             <SizeBtn 
                                 onClick={this.onClickSelectSize} 
-                                isClicked={sizeFilter.indexOf('XS')!==-1} 
+                                isClicked={sizeFilter.includes('XS')} 
                                 value="XS" >XS
                             </SizeBtn>
                             <SizeBtn 
                                 onClick={this.onClickSelectSize} 
-                                isClicked={sizeFilter.indexOf('S')!==-1} 
+                                isClicked={sizeFilter.includes('S')} 
                                 value="S" >S
                             </SizeBtn>
                             <SizeBtn 
                                 onClick={this.onClickSelectSize} 
-                                isClicked={sizeFilter.indexOf('M')!==-1} 
+                                isClicked={sizeFilter.includes('M')} 
                                 value="M" >M
                             </SizeBtn>
                             <SizeBtn 
                                 onClick={this.onClickSelectSize} 
-                                isClicked={sizeFilter.indexOf('L')!==-1} 
+                                isClicked={sizeFilter.includes('L')} 
                                 value="L" >L
                             </SizeBtn>
                             <SizeBtn 
                                 onClick={this.onClickSelectSize} 
-                                isClicked={sizeFilter.indexOf('XL')!==-1} 
+                                isClicked={sizeFilter.includes('XL')} 
                                 value="XL" >XL
                             </SizeBtn>
                             <SizeBtn 
                                 onClick={this.onClickSelectSize} 
-                                isClicked={sizeFilter.indexOf('XXL')!==-1} 
+                                isClicked={sizeFilter.includes('XXL')} 
                                 value="XXL" >XXL
                             </SizeBtn>
                   </SizesButtons>);
@@ -51,3 +51,5 @@ class SizeFilter extends React.Component {
 }
 
 export default SizeFilter;
+
+//isClicked={sizeFilter.indexOf('XS')!==-1}
