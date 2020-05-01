@@ -49,6 +49,7 @@ class AuthStore {
     @action.bound
     userSignOut() {
         clearUserSession();
+        this.init();
     }
 }
 

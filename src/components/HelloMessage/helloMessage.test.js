@@ -5,9 +5,8 @@ import { HelloMessage } from ".";
 describe("HelloMessage tests", () => {
     it("should render given message", () => {
         const { getByText, debug } = render(<HelloMessage message="World"/>);
-        getByText(/World/i);
+        getByText(/world/i);
         debug();
-        // const onSuccess = jest.fn();
-        // console.log(onSuccess);
+
     });
 });
