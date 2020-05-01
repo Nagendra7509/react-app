@@ -7,5 +7,7 @@ describe("HelloMessage tests", () => {
         const { getByText, debug } = render(<HelloMessage message="World"/>);
         getByText(/World/i);
         debug();
+        // const onSuccess = jest.fn();
+        // console.log(onSuccess);
     });
 });
