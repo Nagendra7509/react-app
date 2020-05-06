@@ -49,7 +49,6 @@ describe('AuthStore Tests', () => {
         mockSignInAPI.mockReturnValue(mockSuccessPromise);
         authAPI.signInAPI = mockSignInAPI;
 
-
         await authStore.userSignIn();
         expect(authStore.getUserSignInAPIStatus).toBe(API_SUCCESS);
         expect(mockSetCookie).toBeCalled();

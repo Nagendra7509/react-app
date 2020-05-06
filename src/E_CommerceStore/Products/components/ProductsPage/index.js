@@ -22,37 +22,36 @@ import {
 from "./styledComponent";
 
 
-@inject("authStore")
 @inject("productStore")
-@inject('cartStore')
+
 
 @observer
 class ProductsPage extends React.Component {
 
-    componentDidMount() {
-        this.doNetworkCall();
-    }
+    // componentDidMount() {
+    //     this.doNetworkCall();
+    // }
 
 
-    doNetworkCall = () => {
-        this.props.productStore.getProductList();
-    }
+    // doNetworkCall = () => {
+    //     this.props.productStore.getProductList();
+    // }
 
-    onClickSignout = () => {
-        this.props.authStore.userSignOut();
-        const { history } = this.props;
-        history.replace('/ecommerce-store/sign-in/');
-    }
+    // onClickSignout = () => {
+    //     this.props.authStore.userSignOut();
+    //     const { history } = this.props;
+    //     history.replace('/ecommerce-store/sign-in/');
+    // }
 
-    renderUserList = observer(() => {
-        const { products } = this.props.productStore;
-        const { onClickAddToCart } = this.props.cartStore;
-        if (products === 0) {
-            return <NoDataView/>;
-        }
-        return <ProductList products={products}  onClickAddToCart={onClickAddToCart}/>;
+    // renderUserList = observer(() => {
+    //     const { products } = this.props.productStore;
+    //     const { onClickAddToCart } = this.props.cartStore;
+    //     if (products === 0) {
+    //         return <NoDataView/>;
+    //     }
+    //     return <ProductList products={products}  onClickAddToCart={onClickAddToCart}/>;
 
-    })
+    // })
 
     render() {
         const {
@@ -65,11 +64,15 @@ class ProductsPage extends React.Component {
             onChangeSearchText
         } = this.props.productStore;
 
+        const { renderUserList, onClickSignout, doNetWorkCall } = this.props;
+
+
+
         if (getAccessToken()) {
             return (<E_CommerceStore_App>
                     <HeaderPart>
                         {/*<MenuPage onClickSignout={this.onClickSignout} />*/}
-                        <SignOutBtn onClick={this.onClickSignout}>sigout</SignOutBtn>
+                        <SignOutBtn onClick={onClickSignout}>sigout</SignOutBtn>
                         <ProductCart/>
                     </HeaderPart>
                     <FilterAndProducts>
@@ -83,8 +86,8 @@ class ProductsPage extends React.Component {
                               <LoadingWrapperWithFailure
                                 apiStatus={getProductListAPIStatus}
                                 apiError={getProductListAPIError}
-                                onRetryClick={this.doNetWorkCall}
-                                renderSuccessUI={this.renderUserList}
+                                onRetryClick={doNetWorkCall}
+                                renderSuccessUI={renderUserList}
                               />
                         </SortFilterAndProducts>
                     </FilterAndProducts>

@@ -13,7 +13,8 @@ const UserName = styled.input `
 const Password = styled.input `
     ${tw `border border-gray-400 mb-3 w-48 h-10 pl-2 focus:outline-none rounded`}`;
 const SignInBtn = styled.button `
-    ${tw `flex justify-center w-48 h-10 rounded bg-gray-900 text-white focus:outline-none cursor-pointer`}`;
+    ${tw `flex justify-center w-48 h-10 rounded bg-gray-900 text-white focus:outline-none cursor-pointer`}
+    opacity:${props=>props.opacityValue?0.5:1}`;
 const ErrorMessage = styled.p `
     ${tw `text-red-700 pt-2 text-sm`}`;
 

@@ -79,13 +79,7 @@ class Practice extends React.Component {
         //     console.log(JSON.stringify(message), "4") // also reads the entire structure
         // })
 
-        let message = observable({
-            title: "Foo",
-            author: {
-                name: "Michel"
-            },
-            likes: ["John", "Sara"]
-        });
+
 
         // function upperCaseAuthorName(author) {
         //     const baseName = author.name;
@@ -99,9 +93,16 @@ class Practice extends React.Component {
         // autorun(() => {
         //     setTimeout(() => console.log(message.likes.join(", ")), 10)
         // })
+
         // message.likes.push("Jennifer")
 
+        Promise.resolve(56).then(console.log("1")).then(console.log).then(console.log("2"));
+
+
+
+
         return <h1>Hello</h1>;
+
     }
 }
 
