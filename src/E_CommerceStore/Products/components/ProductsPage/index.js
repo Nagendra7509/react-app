@@ -6,7 +6,7 @@ import { ToastContainer, Slide } from 'react-toastify';
 import LoadingWrapperWithFailure from "../../../../Common/LoadingWrapper/LoadingWrapperWithFailure/index";
 import NoDataView from "../../../../Common/LoadingWrapper/NoDataView/index";
 import ProductCart from "../../../Cart/components/ProductCart/index";
-import { getAccessToken } from "../../../Authentication/utils/StorageUtils";
+
 //import MenuPage from "../../../Menu/components/MenuPage/index";
 import SizeFilter from "./SizeFilter/index";
 import Header from "./Header/index";
@@ -68,8 +68,8 @@ class ProductsPage extends React.Component {
 
 
 
-        if (getAccessToken()) {
-            return (<E_CommerceStore_App>
+
+        return (<E_CommerceStore_App>
                     <HeaderPart>
                         {/*<MenuPage onClickSignout={this.onClickSignout} />*/}
                         <SignOutBtn onClick={onClickSignout}>sigout</SignOutBtn>
@@ -103,11 +103,8 @@ class ProductsPage extends React.Component {
                         newestOnTop={false}
                     />
                 </E_CommerceStore_App>);
-        }
 
-        return (
-            <Redirect to ={{pathname:'/ecommerce-store/sign-in/'}}/>
-        );
+
     }
 }
 

@@ -106,7 +106,7 @@ class ProductStore {
                 let descending = filteredSizesList.sort((a, b) => a.price - b.price);
                 return descending.reverse();
             default:
-                console.log(filteredSizesList);
+                //console.log(filteredSizesList);
                 return filteredSizesList;
         }
 

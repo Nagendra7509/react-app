@@ -3,7 +3,7 @@ import SignInPage from "../components/SignInPage/index";
 import { observer, inject } from "mobx-react";
 import { Redirect } from "react-router-dom";
 import { observable, action } from "mobx";
-import { getAccessToken } from "../utils/StorageUtils";
+import { getAccessToken, clearUserSession } from "../utils/StorageUtils";
 
 @inject("authStore")
 @observer
@@ -52,10 +52,11 @@ class SignInRoute extends React.Component {
 
 
     render() {
+
         const { getUserSignInAPIStatus } = this.props.authStore;
-        if (getAccessToken()) {
-            return <Redirect to ={{pathname:'/ecommerce-store/products/'}}/>;
-        }
+        // if (getAccessToken()) {
+        //     return <Redirect to ={{pathname:'/ecommerce-store/products/'}}/>;
+        // }
         return <SignInPage
                 username={this.username}
                 onChangeUsername={this.onChangeUsername}

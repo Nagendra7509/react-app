@@ -69,7 +69,6 @@ class SignInPage extends React.Component {
             onChangePassword,
             onClickSignIn,
             errorMessage,
-            isClicked,
             getUserSignInAPIStatus
         } = this.props;
         return (<SignInPageDiv>
@@ -100,7 +99,6 @@ class SignInPage extends React.Component {
                 </SignInPageDiv>);
 
     }
-
 }
 
 export default SignInPage;

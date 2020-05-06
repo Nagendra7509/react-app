@@ -4,9 +4,8 @@ import { render } from "@testing-library/react";
 import { HelloMessage } from ".";
 describe("HelloMessage tests", () => {
     it("should render given message", () => {
-        const { getByText, debug } = render(<HelloMessage message="World"/>);
+        const { getByText } = render(<HelloMessage message="World"/>);
         getByText(/world/i);
-        debug();
 
     });
 });

@@ -22,9 +22,8 @@ class CartStore {
             });
         }
         else {
-            const product = this.getProductDetailsById(productId);
-            this.productIdList.push(product.productId);
-            this.cartProductList.push(new CartItem(product.productId));
+            this.productIdList.push(productId);
+            this.cartProductList.push(new CartItem(productId));
         }
 
     }

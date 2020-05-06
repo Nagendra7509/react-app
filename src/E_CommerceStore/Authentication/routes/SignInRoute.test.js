@@ -21,7 +21,6 @@ import { SignInRoute } from "./SignInRoute.js";
 const LocationDisplay = withRouter(({ location }) => (
     <div data-testid="location-display">{location.pathname}</div>
 ));
-console.log(LocationDisplay, 1);
 
 describe("SignInRoute Tests", () => {
 
@@ -46,6 +45,7 @@ describe("SignInRoute Tests", () => {
         const signInButton = getByRole("button", { name: "Sign in" });
         fireEvent.click(signInButton);
         getByText(/Please enter username/i);
+
 
     });
 
@@ -83,11 +83,11 @@ describe("SignInRoute Tests", () => {
         fireEvent.change(passwordField, { target: { value: password } });
         fireEvent.keyPress(signInButton, { key: "Enter", code: "Enter" });
 
-        waitFor(() => getByLabelText("Loading...."));
+        waitFor(() => getByRole("button", { name: "Loading...." }));
     });
 
     it('should render signInRoute loading state', () => {
-        const { getByLabelText, getByRole, getByPlaceholderText, debug } = render(
+        const { getByLabelText, getByRole, getByPlaceholderText } = render(
             <Router history={createMemoryHistory()}>
                 <SignInRoute authStore={authStore}/>
             </Router>
@@ -168,7 +168,6 @@ describe("SignInRoute Tests", () => {
                 PRODUCT_PAGE_PATH
             );
         });
-        debug();
     });
 
     it("should render signInRoute failure state", () => {

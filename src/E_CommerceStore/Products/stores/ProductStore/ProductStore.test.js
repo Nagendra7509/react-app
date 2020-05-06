@@ -154,7 +154,7 @@ describe('productStore Tests', () => {
             availableSizes: ['M'],
             price: 420,
             title: "black T-shirt",
-        }]
+        }];
 
         expect(productStore.sortedAndFilteredProducts).toEqual(filteredList);
     });

@@ -2,6 +2,7 @@ import React from "react";
 import { observer, inject } from "mobx-react";
 import ProductsPage from "../components/ProductsPage/index";
 import ProductList from "../components/ProductsPage/ProductList/index";
+//import { getAccessToken } from "../../Authentication/utils/StorageUtils";
 
 @inject("authStore")
 @inject("productStore")
@@ -37,13 +38,17 @@ class ProductPageRoute extends React.Component {
     })
 
     render() {
-        return (
-            <ProductsPage
+
+        return <ProductsPage
                 onClickSignout={this.onClickSignout}
                 renderUserList={this.renderUserList}
                 onRetryClick={this.doNetworkCall}
-                />
-        );
+                />;
+
+        // return (
+        //     <Redirect to ={{pathname:'/ecommerce-store/sign-in/'}}/>
+        // );
+
     }
 }
 
