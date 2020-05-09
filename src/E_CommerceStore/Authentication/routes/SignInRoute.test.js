@@ -1,4 +1,6 @@
 import React from "react";
+import Cookie from "js-cookie";
+
 import { render, fireEvent, waitFor } from "@testing-library/react";
 import { Router, Route, withRouter } from "react-router-dom";
 import { Provider } from "mobx-react";
@@ -17,6 +19,13 @@ import { SignInRoute } from "./SignInRoute.js";
 
 /*global jest*/
 /*global expect*/
+
+
+
+let mockGetCookie = jest.fn();
+
+Cookie.get = mockGetCookie;
+
 
 const LocationDisplay = withRouter(({ location }) => (
     <div data-testid="location-display">{location.pathname}</div>
@@ -164,6 +173,7 @@ describe("SignInRoute Tests", () => {
             expect(
                 queryByRole("button", { name: "Sign in" })
             ).not.toBeInTheDocument();
+
             expect(getByTestId("location-display")).toHaveTextContent(
                 PRODUCT_PAGE_PATH
             );

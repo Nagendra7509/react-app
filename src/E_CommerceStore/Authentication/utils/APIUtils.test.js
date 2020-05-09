@@ -6,5 +6,7 @@ import getUserSignInResponse from "../fixtures/getUserSignInResponse.json";
 
 describe('APIUtils test cases', () => {
 
-    it('should test functionality of networkCallWithApisauce', () => {});
+    it('should test functionality of networkCallWithApisauce', () => {
+
+    });
 });

@@ -53,6 +53,7 @@ describe('productStore Tests', () => {
         mockProductAPI.mockReturnValue(mockSuccessPromise);
         productServiceAPI.getProductsAPI = mockProductAPI;
 
+
         await productStore.getProductList();
         expect(productStore.getProductListAPIStatus).toBe(API_SUCCESS);
 
@@ -70,6 +71,7 @@ describe('productStore Tests', () => {
         mockProductAPI.mockReturnValue(mockFailurePromise);
         productServiceAPI.getProductsAPI = mockProductAPI;
 
+
         await productStore.getProductList();
         expect(productStore.getProductListAPIStatus).toBe(API_FAILED);
         expect(productStore.getProductListAPIError).toBe('failure');
@@ -82,12 +84,14 @@ describe('productStore Tests', () => {
     });
 
     it('should test onSelectSize', () => {
+
         productStore.onSelectSize('S');
         expect(productStore.sizeFilter).toStrictEqual(Array('S'));
         productStore.onSelectSize('XS');
         expect(productStore.sizeFilter).toStrictEqual(Array('S', 'XS'));
         productStore.onSelectSize('S');
         expect(productStore.sizeFilter).toStrictEqual(Array('XS'));
+
     });
 
     it('should test onSearchText', () => {
@@ -110,7 +114,7 @@ describe('productStore Tests', () => {
             },
             {
                 availableSizes: ['M', 'S', 'XL'],
-                price: 200,
+                price: 200, //expect(mockGetCookie).toBe(getUserSignInResponse);
                 title: "white shirt",
             }
         ];
@@ -146,7 +150,7 @@ describe('productStore Tests', () => {
         productStore.onChangeSearchText('black');
         productStore.onChangeSortBy('DESCENDING');
 
-        const filteredList = [{
+        const filteredListDescending = [{
             availableSizes: ['XL', 'S'],
             price: 730,
             title: "black shirt",
@@ -156,7 +160,24 @@ describe('productStore Tests', () => {
             title: "black T-shirt",
         }];
 
-        expect(productStore.sortedAndFilteredProducts).toEqual(filteredList);
+        expect(productStore.sortedAndFilteredProducts).toEqual(filteredListDescending);
+
+        const filteredListAscending = [{
+                availableSizes: ['M'],
+                price: 420,
+                title: "black T-shirt",
+            },
+            {
+                availableSizes: ['XL', 'S'],
+                price: 730,
+                title: "black shirt",
+            }
+
+        ]
+
+        productStore.onChangeSortBy('ASCENDING');
+        expect(productStore.sortedAndFilteredProducts).toEqual(filteredListAscending);
+
     });
 
 

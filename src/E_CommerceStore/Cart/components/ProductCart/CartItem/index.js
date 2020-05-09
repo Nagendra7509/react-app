@@ -31,7 +31,6 @@ class CartItem extends React.Component {
         return (<ProductInCart>
                     <hr/>
                 <CartItemDiv>
-                
                         <RemoveCartItemBtn data-testid='remove-cart-item' onClick={this.onRemoveCartItem} id={cartProductItem.cartItemId}>x</RemoveCartItemBtn>
                         <ProductImg src={productDetails.imageURL} alt="Cat Tee Black T-Shirt"/>
                         <ProductDetailsDiv>

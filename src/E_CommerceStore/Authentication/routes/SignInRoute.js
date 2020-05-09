@@ -33,8 +33,9 @@ class SignInRoute extends React.Component {
             await this.props.authStore.userSignIn();
 
             if (getAccessToken()) {
-                const { history } = this.props;
-                history.push('/ecommerce-store/products/');
+                // const { history } = this.props;
+                // history.push('/ecommerce-store/products/');
+                <Redirect to={{pathname:"/ecommerce-store/products/"}}/>;
             }
             else {
                 this.errorMessage = "server-error";
