@@ -20,19 +20,12 @@ import { authenticationRoutes } from "./E_CommerceStore/Authentication/routes/in
 import { productsRoutes } from "./E_CommerceStore/Products/routes/index";
 import Practice from "./components/Practice";
 
-//{...storesFromAuth}
-
-
-//import { yourPageRoute } from "./E_CommerceStore/Menu/routes/index";
 
 const App = () => {
-  //console.log(storesFromAuth);
   return (
     <Provider {...stores} {...storesFromAuth} >
     <Router basename={process.env.PUBLIC_URL}>
       <div>
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
         <Switch>
           <Route path="/todoslist">
             <TodosList />
@@ -61,7 +54,6 @@ const App = () => {
           <Route exact path="/ecommerce-store/products/" component={ProductsPage}></Route>*/}
           {authenticationRoutes}
           {productsRoutes}
-          {/*{yourPageRoute}*/}
           
           <Route path="/">
             <Home />
@@ -74,15 +66,3 @@ const App = () => {
 };
 
 export default App;
-
-
-/*<Router basename={process.env.PUBLIC_URL}>
-  <Switch>
-    <Route exact path="/page-1">
-      <Page1 />
-    </Route>
-    <Route path="/">
-      <HomePage />
-    </Route>
-  </Switch>
-</Router>*/

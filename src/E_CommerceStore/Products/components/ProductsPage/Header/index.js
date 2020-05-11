@@ -23,7 +23,7 @@ class Header extends React.Component {
         const { totalNoOfProductsDisplayed, onChangeSortBy } = this.props;
         return (
             <NoofProductsAndProductSort>
-                <TotalNofProducts>{totalNoOfProductsDisplayed} Product(s) found.</TotalNofProducts>
+                <TotalNofProducts>{ totalNoOfProductsDisplayed } Product(s) found.</TotalNofProducts>
                 <SearchBar 
                     type="text" 
                     placeholder="search for products" 

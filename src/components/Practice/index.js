@@ -415,10 +415,11 @@
 
 // export default Practice;
 
-
+/*
 import React from "react";
 import { render } from "react-dom";
 import { observer } from "mobx-react";
+import { computed, autorun } from "mobx";
 import { observable, action } from "mobx";
 
 @observer
@@ -431,48 +432,282 @@ class Practice extends React.Component {
     }
 
     render() {
+
+
+
+        class Person {
+            @observable initial = "P";
+            @observable firstName = "John";
+            @observable lastName = "Grisham";
+            @observable a = "gfrr";
+            @observable b = "dgd";
+
+            @action
+            setFirstNameLastNameAndInitialAsynchronously = async() => {
+                this.initial = "Q";
+
+
+                const promise = new Promise((resolve, reject) => {
+                    resolve("Success");
+                });
+                await promise;
+                this.setFirstNameLastName();
+                this.b = "ehttrhgrth";
+                this.a = "rtgrtgrw";
+            };
+
+            @action.bound
+            setFirstNameLastName() {
+                this.firstName = "Jim";
+                this.lastName = "Corte";
+            }
+
+            @computed
+            get fullName() {
+                //console.log('fullName');
+                return this.initial + " " + this.firstName + " " + this.lastName + " " + this.a + " " + this.b;
+            }
+        }
+
+        const john = new Person();
+
+        autorun(() => {
+            console.log("autorun called", john.fullName);
+        });
+
+        john.setFirstNameLastNameAndInitialAsynchronously();
+
+
+
         console.log("render CounterParent");
-        return (
-            <CounterChild
-        onParentCounterDecrement={this.onParentCounterDecrement}
-        parentCounter={this.parentCounter}
-      />
-        );
+        return (<h1>Hello</h1>);
     }
 }
 
 
+
+
+
+export default Practice;
+*/
+
+
+
+
+// import React from "react";
+// import { render } from "react-dom";
+// import { observable, computed, autorun, action } from "mobx";
+// import { observer } from "mobx-react";
+
+// class Person {
+//     @observable firstName = "Tony";
+//     @observable lastName = "Stark";
+
+//     @computed get fullName() {
+//         console.log('hello');
+//         return this.firstName + " " + this.lastName;
+//     }
+
+//     @action.bound
+//     async changeFirstNameAndLastName() {
+//         let promise = new Promise((resolve, reject) => {
+//             resolve({
+//                 first_name: "Peter",
+//                 last_name: "Parker",
+//             });
+//         });
+//         promise.then((response) => {
+//             //console.log("promise")
+//             this.firstName = response.first_name;
+//             this.lastName = response.last_name;
+//             //console.log(this.firstName, this.lastName, "ergererfgerfg");
+//         });
+//     }
+// }
+
+// const newPerson = new Person();
+
+// // Reaction: log the profile info whenever it changes
+
+
+// // Example React component that observes state
+// const Practice = observer((props) => {
+//     console.log("render ProfileView");
+//     autorun(() => {
+//         console.log("Autorun called", newPerson.fullName);
+//     });
+
+//     return (
+//         <div>
+//       <p>{props.person.fullName}</p>
+//       <button onClick={props.person.changeFirstNameAndLastName}>
+//         Change first name and last name
+//       </button>
+//     </div>
+//     );
+// });
+
+// export { Practice, Person };
+
+
+// import React, { Component } from "react";
+// import { render } from "react-dom";
+// import { observable, action } from "mobx";
+// import { observer } from "mobx-react";
+
+// @observer
+// class Practice extends Component {
+//     @observable count = 12;
+//     @observable doubleTheCount = 13;
+//     @observable a = "rthrthg";
+//     @observable b = "ergraetgaer";
+
+//     updateCounts = async() => {
+//         this.count = this.count + 1;
+
+
+//         let promise = new Promise((resolve, reject) => {
+//             resolve("Success");
+//         });
+
+//         promise.then(() => {
+//             this.count = this.count + 1;
+//             this.doubleTheCount = this.doubleTheCount * 2;
+//         });
+//         //console.log("sdjcnsdikfnweuogfberugbnruiobtgntwhetyejewyj");
+//         this.a = "rthrthgrtgw";
+//         this.b = "egertgqretgqrgqrtghqtrg";
+
+//     }
+
+//     render() {
+//         console.log("render Counter");
+//         return (
+//             <div>
+//         <p>Count: {this.count}</p>
+//         <p>Double Count: {this.doubleTheCount} {this.a}{this.b}</p>
+//         <button onClick={this.updateCounts}>Update counts</button>
+//       </div>
+//         );
+//     }
+// }
+
+
+// export default Practice;
+
+
+
+// import React, { Component } from "react";
+// import { render } from "react-dom";
+// import { observable, action, computed } from "mobx";
+// import { observer } from "mobx-react";
+
+// @observer
+// class Practice extends Component {
+//     @observable price = 0;
+//     @observable amount = 0;
+//     @observable currency = "Rupees";
+
+//     @action
+//     setPriceAndAmountAndCurrencyAsynchronously = async() => {
+//         this.currency = "Dollars";
+
+//         // Suppose we got price and quantity from server response
+//         const promise = new Promise((resolve, reject) => {
+//             resolve({
+//                 price: "40",
+//                 amount: "150",
+//             });
+//         });
+//         const { price, amount } = await promise;
+//         this.setPriceAndAmount(price, amount);
+//     };
+
+//     setPriceAndAmount = (price, amount) => {
+//         this.price = price;
+//         this.amount = amount;
+//     };
+
+//     @computed
+//     get total() {
+//         console.log('computed');
+//         return this.price + this.amount + " " + this.currency;
+//     }
+
+//     render() {
+//         console.log("render ProductView");
+//         return (
+//             <div>
+//         {this.total}
+//         <button onClick={this.setPriceAndAmountAndCurrencyAsynchronously}>
+//           Change details
+//         </button>
+//       </div>
+//         );
+//     }
+// }
+
+// export default Practice;
+
+
+import React, { Component } from "react";
+import { render } from "react-dom";
+import { observable, computed, action, reaction, autorun } from "mobx";
+import { observer } from "mobx-react";
+
 @observer
-class CounterChild extends React.Component {
-    @observable childCounter1 = 10;
-    @observable childCounter2 = 20;
+class Practice extends Component {
+    @observable firstCounter = 0;
+    @observable secondCounter = 0;
+
+    @computed
+    get displayFirstCounterAndSecondCounter() {
+        console.log("computed value");
+        return `${this.firstCounter} ${this.secondCounter}`;
+    }
 
     @action.bound
-    onDecrement() {
-        const { onParentCounterDecrement } = this.props;
-
-        onParentCounterDecrement();
-        onParentCounterDecrement();
-
-        this.childCounter1 -= 3;
-        this.childCounter2 -= 10;
-        onParentCounterDecrement();
+    onChangeFirstAndSecondCount() {
+        this.firstCounter = this.firstCounter + 3;
+        this.secondCounter = this.secondCounter + 20;
     }
 
     render() {
-        console.log("render CounterChild");
-        const { parentCounter } = this.props;
+        console.log('render');
+
+        class Product {
+            @observable price = 0;
+            @observable profit = 0;
+
+            @action.bound
+            setPriceAndProfit(price, profit) {
+                this.price = price;
+                this.profit = profit;
+            }
+
+            dispose = autorun(() => {
+                console.log("Autorun called");
+                console.log("total", this.price * this.profit);
+            });
+        }
+
+        const product = new Product();
+        product.setPriceAndProfit(55, 5);
+
+        product.dispose();
+
 
         return (
             <div>
-        <button onClick={this.onDecrement}>Decrement</button>
-        <div>parentCounter: {parentCounter}</div>
-        <div>childCounter1: {this.childCounter1}</div>
-        <div>childCounter2: {this.childCounter2}</div>
+        <p>
+          Counter display string: {this.displayFirstCounterAndSecondCounter}
+        </p>
+        <button onClick={this.onChangeFirstAndSecondCount}>
+          Change counters
+        </button>
       </div>
         );
     }
 }
-
 
 export default Practice;

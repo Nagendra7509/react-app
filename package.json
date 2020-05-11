@@ -76,7 +76,19 @@
   "jest": {
     "testEnvironment": "node",
     "collectCoverageFrom": [
-      "src/E_CommerceStore/Authentication*.{ts,tsx,js,jsx}"
+      "!src/components/**/*.{ts,tsx,js,jsx}",
+      "!src/stores/**/*.{ts,tsx,js,jsx}",
+      "!src/styles/**/*.{ts,tsx,js,jsx}",
+      "!src/services/**/*.{ts,tsx,js,jsx}",
+      "!src/fixtures/**/*.{ts,tsx,js,jsx}",
+      "!src/constants/**/*.{ts,tsx,js,jsx}",
+      "!src/Common/**/*.{ts,tsx,js,jsx}",
+      "!src/App.{ts,tsx,js,jsx}",
+      "!src/index.{ts,tsx,js,jsx}",
+      "!src/serviceWorker.{ts,tsx,js,jsx}",
+      "!src/setupTests.{ts,tsx,js,jsx}",
+      "!src/utils/**/*.{ts,tsx,js,jsx}"
     ]
+
   }
 }
