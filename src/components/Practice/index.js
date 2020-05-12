@@ -673,28 +673,7 @@ class Practice extends Component {
     }
 
     render() {
-        console.log('render');
 
-        class Product {
-            @observable price = 0;
-            @observable profit = 0;
-
-            @action.bound
-            setPriceAndProfit(price, profit) {
-                this.price = price;
-                this.profit = profit;
-            }
-
-            dispose = autorun(() => {
-                console.log("Autorun called");
-                console.log("total", this.price * this.profit);
-            });
-        }
-
-        const product = new Product();
-        product.setPriceAndProfit(55, 5);
-
-        product.dispose();
 
 
         return (

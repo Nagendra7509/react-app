@@ -4,9 +4,11 @@ import ProductStore from "../../stores/ProductStore/index";
 import CartStore from "../../../Cart/stores/CartStore/index";
 import { render, fireEvent } from "@testing-library/react";
 import { Provider } from "mobx-react";
-import SizeFilter from "./SizeFilter";
+import LoadingWrapperWithFailure from "../../../../Common/LoadingWrapper/LoadingWrapperWithFailure/index";
+
 import ProductService from "../../services/ProductService/index.api";
 import productsData from "../../fixtures/getProductsResponse.json";
+
 
 /*global expect*/
 
@@ -22,12 +24,11 @@ describe("ProductsPage test cases", () => {
 
 
     it('should test signout button', () => {
-        const { getByRole, debug } = render(
+        const { getByRole } = render(
             <Provider productStore={productStore} cartStore={cartStore}>
                     <ProductsPage/>
                 </Provider>);
         getByRole('button', { name: "sigout" });
-        //debug();
     });
 
 
@@ -41,7 +42,7 @@ describe("ProductsPage test cases", () => {
     });
 
     it('should test sizeFilters', () => {
-        const { getByRole, debug } = render(
+        const { getByRole } = render(
             <Provider productStore={productStore} cartStore={cartStore}>
                     <ProductsPage>
                         
@@ -59,7 +60,7 @@ describe("ProductsPage test cases", () => {
 
     it('should test Header(No of Products,searchBar,Dropdown)', () => {
         productStore.setProductListResponse(productsData);
-        const { getByText, debug, getByPlaceholderText, getByLabelText } = render(
+        const { getByText, getByPlaceholderText, getByLabelText } = render(
             <Provider productStore={productStore} cartStore={cartStore}>
                     <ProductsPage/>
                 </Provider>);
@@ -78,9 +79,10 @@ describe("ProductsPage test cases", () => {
         getByText('This website uses cookies to enhance the user experience.');
     });
 
+    it('should test product list', () => {
 
 
-
+    });
 
 
 });

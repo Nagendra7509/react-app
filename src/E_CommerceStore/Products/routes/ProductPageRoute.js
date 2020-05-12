@@ -28,6 +28,7 @@ class ProductPageRoute extends React.Component {
     }
 
     renderUserList = observer(() => {
+        
         const { products } = this.props.productStore;
         const { onClickAddToCart } = this.props.cartStore;
         if (products === 0) {

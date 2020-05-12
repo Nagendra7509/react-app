@@ -33,6 +33,7 @@ class TodoAppNetworkCalls extends React.Component {
     }
 
     renderUserList = observer(() => {
+        //console.log('called');
         const {
             todos,
             todoArray,
@@ -57,6 +58,7 @@ class TodoAppNetworkCalls extends React.Component {
             selectedFilter,
             onChangeSelectedFilter
         } = this.getTodoStore();
+        console.log(getTodoListAPIStatus);
 
         return (
             <TodosListApp>

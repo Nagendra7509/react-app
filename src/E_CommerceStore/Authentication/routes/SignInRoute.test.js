@@ -155,7 +155,7 @@ describe("SignInRoute Tests", () => {
         const password = "test-password";
 
         const usernameField = getByPlaceholderText("Username");
-        //const passwordField = getByPlaceholderText("Password");
+        const passwordField = getByPlaceholderText("Password");
         const signInButton = getByRole("button", { name: "Sign in" });
 
         const mockSuccessPromise = new Promise(function(resolve, reject) {
@@ -166,7 +166,7 @@ describe("SignInRoute Tests", () => {
         authAPI.signInAPI = mockSignInAPI;
 
         fireEvent.change(usernameField, { target: { value: username } });
-        //fireEvent.change(passwordField, { target: { value: password } });
+        fireEvent.change(passwordField, { target: { value: password } });
         fireEvent.click(signInButton);
 
         waitFor(() => {
