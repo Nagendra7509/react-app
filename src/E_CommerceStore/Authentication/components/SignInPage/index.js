@@ -20,44 +20,30 @@ from "./styledComponent";
 @observer
 class SignInPage extends React.Component {
 
-    // @observable username = "";
-    // @observable password = "";
-    // @observable errorMessage = "";
-    // @observable isClicked = false
+    userNameRef = React.createRef();
+    passwordRef = React.createRef();
+
+    componentDidMount() {
+        this.userNameRef.current.focus();
 
 
+    }
 
-    // @action.bound
-    // onChangeUsername(event) {
-    //     this.username = event.target.value;
-    // }
+    checkFocus = () => {
+        const { errorMessage } = this.props;
+        switch (errorMessage) {
+            case "Please enter username":
+                this.userNameRef.current.focus();
+                break;
+            case "Please enter password":
+                this.passwordRef.current.focus();
+                break;
+            default:
+                this.userNameRef.current.focus();
 
-    // @action.bound
-    // onChangePassword(event) {
-    //     this.password = event.target.value;
-    // }
+        }
+    }
 
-    // @action.bound
-    // onClickSignIn() {
-    //     if (this.username != "" && this.password != "") {
-    //         this.isClicked = true;
-    //         this.props.authStore.userSignIn();
-    //         setTimeout(() => {
-    //             if (getAccessToken()) {
-    //                 const { history } = this.props;
-    //                 history.push('/ecommerce-store/products/');
-    //             }
-    //         }, 1000);
-
-    //     }
-    //     else if (this.username === "") {
-    //         this.errorMessage = "Please enter username";
-    //     }
-    //     else {
-    //         this.errorMessage = "Please enter password";
-    //     }
-
-    // }
     render() {
         if (getAccessToken()) {
             return <Redirect to ={{pathname:'/ecommerce-store/products/'}}/>;
@@ -71,16 +57,22 @@ class SignInPage extends React.Component {
             errorMessage,
             getUserSignInAPIStatus
         } = this.props;
+
+        if (errorMessage) {
+            this.checkFocus();
+        }
         return (<SignInPageDiv>
                     <SignInForm>
                         <SignInText>Sign in</SignInText>
                         <UserName 
+                            ref={this.userNameRef}
                             onChange={onChangeUsername} 
                             value={username} 
                             type="text" 
                             placeholder="Username"
                         />
                         <Password 
+                            ref={this.passwordRef}
                             onChange={onChangePassword} 
                             value={password} 
                             type="password" 

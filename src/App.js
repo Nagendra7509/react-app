@@ -20,6 +20,8 @@ import { authenticationRoutes } from "./E_CommerceStore/Authentication/routes/in
 import { productsRoutes } from "./E_CommerceStore/Products/routes/index";
 import Practice from "./components/Practice";
 
+import { ThemeContext } from "./context/EcommerceAppContext";
+
 
 const App = () => {
   return (
@@ -52,8 +54,10 @@ const App = () => {
           </Route>
           {/*<Route exact path="/ecommerce-store/sign-in/" component={SignInPage}></Route>
           <Route exact path="/ecommerce-store/products/" component={ProductsPage}></Route>*/}
+          
           {authenticationRoutes}
           {productsRoutes}
+          
           
           <Route path="/">
             <Home />
