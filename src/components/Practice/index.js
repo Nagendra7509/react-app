@@ -655,35 +655,35 @@ import { render } from "react-dom";
 import { observable, computed, action, reaction, autorun } from "mobx";
 import { observer } from "mobx-react";
 
+"use strict";
+
 @observer
 class Practice extends Component {
-    @observable firstCounter = 0;
-    @observable secondCounter = 0;
-
-    @computed
-    get displayFirstCounterAndSecondCounter() {
-        console.log("computed value");
-        return `${this.firstCounter} ${this.secondCounter}`;
-    }
-
-    @action.bound
-    onChangeFirstAndSecondCount() {
-        this.firstCounter = this.firstCounter + 3;
-        this.secondCounter = this.secondCounter + 20;
-    }
-
+    firstName = "Vamsi"
     render() {
 
+        let myObj = {
+            firstName: "Obama",
+            getAsyncData: (cb) => {
+                console.log(this, "this");
+                console.log(this.firstName, 2);
+                cb();
+            },
+            render: function() {
+                //firstName: "Obama"
+                console.log(this.firstName, 1);
+                this.getAsyncData(() => {
 
+                    //console.log(this.firstName, 3);
+                });
+            },
+        };
+
+        myObj.render();
 
         return (
             <div>
-        <p>
-          Counter display string: {this.displayFirstCounterAndSecondCounter}
-        </p>
-        <button onClick={this.onChangeFirstAndSecondCount}>
-          Change counters
-        </button>
+        
       </div>
         );
     }
