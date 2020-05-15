@@ -16,6 +16,11 @@ import {
 from "./styledComponent";
 
 
+const Display = (props) => {
+    //console.log(typeof props);
+    return <div>{props.children}</div>;
+};
+
 // @inject("authStore")
 @observer
 class SignInPage extends React.Component {
@@ -25,8 +30,6 @@ class SignInPage extends React.Component {
 
     componentDidMount() {
         this.userNameRef.current.focus();
-
-
     }
 
     checkFocus = () => {
@@ -88,6 +91,7 @@ class SignInPage extends React.Component {
                         </SignInBtn>
                         <ErrorMessage>{errorMessage}</ErrorMessage>
                     </SignInForm>
+                    <Display>wefgerer</Display>
                 </SignInPageDiv>);
 
     }

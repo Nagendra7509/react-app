@@ -649,42 +649,26 @@ export default Practice;
 
 // export default Practice;
 
+import React from "react";
 
-import React, { Component } from "react";
-import { render } from "react-dom";
-import { observable, computed, action, reaction, autorun } from "mobx";
-import { observer } from "mobx-react";
+function MyFunctionComponent(ref) {
+    return <input type="text" value="" ref={ref} className="border"/>;
+}
 
-"use strict";
+class Practice extends React.Component {
 
-@observer
-class Practice extends Component {
-    firstName = "Vamsi"
+    textInput = useRef(null);
+
+    constructor(props) {
+        super(props);
+
+    }
+    componentDidMount() {
+        this.textInput.current.focus();
+    }
     render() {
-
-        let myObj = {
-            firstName: "Obama",
-            getAsyncData: (cb) => {
-                console.log(this, "this");
-                console.log(this.firstName, 2);
-                cb();
-            },
-            render: function() {
-                //firstName: "Obama"
-                console.log(this.firstName, 1);
-                this.getAsyncData(() => {
-
-                    //console.log(this.firstName, 3);
-                });
-            },
-        };
-
-        myObj.render();
-
         return (
-            <div>
-        
-      </div>
+            <input type="text" defaultValue="" ref={this.textInput} className="border"/>
         );
     }
 }
