@@ -651,26 +651,53 @@ export default Practice;
 
 import React from "react";
 
-function MyFunctionComponent(ref) {
-    return <input type="text" value="" ref={ref} className="border"/>;
+/*function MyFunctionComponent(props) {
+    console.log(props.dinesh);
+    return <input type="text" defaultValue="Dinchak`" className="border"/>;
 }
 
 class Practice extends React.Component {
-
-    textInput = useRef(null);
 
     constructor(props) {
         super(props);
 
     }
-    componentDidMount() {
-        this.textInput.current.focus();
-    }
     render() {
         return (
-            <input type="text" defaultValue="" ref={this.textInput} className="border"/>
+            <MyFunctionComponent dinesh />
         );
     }
+}
+*/
+
+
+// const Button = props => {
+//     const { kind, ...other } = props;
+//     //console.log(other);
+//     const className = kind === "primary" ? "PrimaryButton" : "SecondaryButton";
+//     return <button className={className} {...other} />;
+// };
+
+// const Practice = () => {
+//     return [
+//         <li key="A">First item</li>,
+//         <li key="B">Second item</li>,
+//         <li key="C">Third item</li>,
+
+
+
+//     ];
+// }
+
+// Calls the children callback numTimes to produce a repeated component
+function Practice() {
+    //console.log('render');
+    return (
+        <div>Hello
+            <div>{false}</div>
+            <div>{true}</div>
+        </div>
+    );
 }
 
 export default Practice;
