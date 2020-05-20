@@ -9,6 +9,8 @@ import { getAccessToken, clearUserSession } from "../utils/StorageUtils";
 @observer
 class SignInRoute extends React.Component {
 
+
+    formRef = React.createRef();
     @observable username = "";
     @observable password = "";
     @observable errorMessage = "";
@@ -44,9 +46,11 @@ class SignInRoute extends React.Component {
         }
         else if (this.username === "") {
             this.errorMessage = "Please enter username";
+            this.formRef.current.userNameRef.current.focus();
         }
         else {
             this.errorMessage = "Please enter password";
+            this.formRef.current.passwordRef.current.focus();
         }
 
     }
@@ -67,6 +71,7 @@ class SignInRoute extends React.Component {
                 errorMessage={this.errorMessage}
                 isClicked={this.isClicked}
                 getUserSignInAPIStatus={getUserSignInAPIStatus}
+                ref={this.formRef}
         />;
     }
 

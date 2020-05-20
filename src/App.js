@@ -19,7 +19,7 @@ import ProductsPage from "./E_CommerceStore/Products/components/ProductsPage/ind
 import { authenticationRoutes } from "./E_CommerceStore/Authentication/routes/index";
 import { productsRoutes } from "./E_CommerceStore/Products/routes/index";
 import Practice from "./components/Practice";
-
+import PracticeAdvancedConceptsRoute from "./Common/routes/PracticeAdvancedConceptsRoute";
 import { ThemeContext } from "./context/EcommerceAppContext";
 
 
@@ -54,11 +54,14 @@ const App = () => {
           </Route>
           {/*<Route exact path="/ecommerce-store/sign-in/" component={SignInPage}></Route>
           <Route exact path="/ecommerce-store/products/" component={ProductsPage}></Route>*/}
+         {/*<ThemeContext.Provider value="light" >
+            {authenticationRoutes}
+            {productsRoutes}
+        </ThemeContext.Provider>*/}
+        <Route exact path="/practice-advanced-concepts" component={PracticeAdvancedConceptsRoute}></Route>
           
-          {authenticationRoutes}
-          {productsRoutes}
-          
-          
+        
+         
           <Route path="/">
             <Home />
           </Route>

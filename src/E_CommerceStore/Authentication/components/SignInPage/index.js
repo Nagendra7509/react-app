@@ -4,6 +4,10 @@ import { Redirect } from "react-router-dom";
 import { observer, inject } from "mobx-react";
 import { getAccessToken } from "../../utils/StorageUtils";
 import { API_FAILED, API_FETCHING, API_SUCCESS, API_INITIAL } from "@ib/api-constants";
+
+import { ThemeContext } from "../../../../context/EcommerceAppContext";
+
+
 import {
     SignInPageDiv,
     SignInForm,
@@ -32,20 +36,6 @@ class SignInPage extends React.Component {
         this.userNameRef.current.focus();
     }
 
-    checkFocus = () => {
-        const { errorMessage } = this.props;
-        switch (errorMessage) {
-            case "Please enter username":
-                this.userNameRef.current.focus();
-                break;
-            case "Please enter password":
-                this.passwordRef.current.focus();
-                break;
-            default:
-                this.userNameRef.current.focus();
-
-        }
-    }
 
     render() {
         if (getAccessToken()) {
@@ -61,10 +51,9 @@ class SignInPage extends React.Component {
             getUserSignInAPIStatus
         } = this.props;
 
-        if (errorMessage) {
-            this.checkFocus();
-        }
-        return (<SignInPageDiv>
+        return (
+
+            <SignInPageDiv>
                     <SignInForm>
                         <SignInText>Sign in</SignInText>
                         <UserName 
@@ -91,8 +80,10 @@ class SignInPage extends React.Component {
                         </SignInBtn>
                         <ErrorMessage>{errorMessage}</ErrorMessage>
                     </SignInForm>
-                    <Display>wefgerer</Display>
-                </SignInPageDiv>);
+                    {/*<Display>wefgerer</Display>*/}
+                </SignInPageDiv>
+
+        );
 
     }
 }

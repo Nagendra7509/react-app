@@ -649,7 +649,7 @@ export default Practice;
 
 // export default Practice;
 
-import React from "react";
+
 
 /*function MyFunctionComponent(props) {
     console.log(props.dinesh);
@@ -690,14 +690,67 @@ class Practice extends React.Component {
 // }
 
 // Calls the children callback numTimes to produce a repeated component
-function Practice() {
-    //console.log('render');
-    return (
-        <div>Hello
-            <div>{false}</div>
-            <div>{true}</div>
-        </div>
-    );
+import React from "react";
+// import { observable } from "mobx";
+// import { observer } from "mobx-react";
+
+
+
+// const Header = () => {
+
+//     return (<div>Hello</div>);
+// }
+
+
+// @observer
+// class Practice extends React.Component {
+
+//     @observable showHeader = true;
+//     @observable myarr = [1, 2, 3, 4]
+
+//     render() {
+//         return (
+//             <div>
+//                 {this.myarr.length>0 && <Header />} {this.showHeader}
+//             </div>
+
+//         );
+//     }
+// }
+
+// export default Practice
+
+
+class MouseWithCat extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleMouseMove = this.handleMouseMove.bind(this);
+        this.state = { x: 0 };
+    }
+
+    handleMouseMove(event) {
+        this.setState({
+            x: window.innerWidth,
+        });
+    }
+
+    render() {
+        return (
+            <div style={{ height: '100vh' }} onClick={this.handleMouseMove}>
+        <p> mouse={this.state.x} </p>
+      </div>
+        );
+    }
+}
+
+class Practice extends React.Component {
+    render() {
+        return (
+            <div>
+        <MouseWithCat />
+      </div>
+        );
+    }
 }
 
 export default Practice;
