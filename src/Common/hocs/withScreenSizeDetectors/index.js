@@ -12,9 +12,7 @@ const withScreenSizeDetectors = (WrappedComponent) => {
         @observable resizeWidth = window.innerWidth;
 
         componentDidMount() {
-
             window.addEventListener('resize', this.updateDimensions);
-
         }
 
 
@@ -24,24 +22,15 @@ const withScreenSizeDetectors = (WrappedComponent) => {
 
 
         @computed get isMobile() {
-            if (this.resizeWidth < 576) {
-                return true;
-            }
-            return false;
+            return this.resizeWidth < 576;
         }
 
         @computed get isTablet() {
-            if (this.resizeWidth >= 576 && this.resizeWidth < 992) {
-                return true;
-            }
-            return false;
+            return (this.resizeWidth >= 576 && this.resizeWidth < 992);
         }
 
         @computed get isDesktop() {
-            if (this.resizeWidth >= 992) {
-                return true;
-            }
-            return false;
+            return (this.resizeWidth >= 992);
         }
 
 
