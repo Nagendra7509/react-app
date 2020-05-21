@@ -55,9 +55,9 @@ const App = () => {
           {/*<Route exact path="/ecommerce-store/sign-in/" component={SignInPage}></Route>
           <Route exact path="/ecommerce-store/products/" component={ProductsPage}></Route>*/}
          {/*<ThemeContext.Provider value="light" >
+        </ThemeContext.Provider>*/}
             {authenticationRoutes}
             {productsRoutes}
-        </ThemeContext.Provider>*/}
         <Route exact path="/practice-advanced-concepts" component={PracticeAdvancedConceptsRoute}></Route>
           
         

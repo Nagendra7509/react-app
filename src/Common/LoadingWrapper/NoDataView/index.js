@@ -6,8 +6,8 @@ class NoDataView extends React.Component {
   render() {
     return (
       <NoDataViewContainer>
-        <NoDataViewText>No data found!</NoDataViewText>
-      </NoDataViewContainer>
+              <NoDataViewText>No data found!</NoDataViewText>
+            </NoDataViewContainer>
     );
   }
 }

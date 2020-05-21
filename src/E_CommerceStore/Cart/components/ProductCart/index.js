@@ -67,7 +67,7 @@ class ProductCart extends React.Component {
                                           </CartIconWithTitle>
                                           <CartListItems>
                                                 <CartList onRemoveCartItem={onRemoveCartItem} cartProductList={cartProductList} getProductDetailsById={getProductDetailsById}/>
-                                                {cartProductList.length>0?null:<p class=" pt-64 text-white text-sm my-auto h-3/4 flex items-center justify-center">Add some products in the cart</p>}
+                                                {cartProductList.length>0?null:<p className=" pt-64 text-white text-sm my-auto h-3/4 flex items-center justify-center">Add some products in the cart</p>}
                                           </CartListItems>
                                           <BillAndPayments>
                                                 <SubTotal totalCartAmount={totalCartAmount}/>
