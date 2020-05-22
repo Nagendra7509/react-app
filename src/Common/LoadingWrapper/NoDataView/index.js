@@ -12,4 +12,6 @@ class NoDataView extends React.Component {
   }
 }
 
+
+
 export default NoDataView;
