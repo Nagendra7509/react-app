@@ -46,11 +46,11 @@ class SignInRoute extends React.Component {
         }
         else if (this.username === "") {
             this.errorMessage = "Please enter username";
-            this.formRef.current.userNameRef.current.focus();
+            //this.formRef.current.userNameRef.current.focus();
         }
         else {
             this.errorMessage = "Please enter password";
-            this.formRef.current.passwordRef.current.focus();
+            //this.formRef.current.passwordRef.current.focus();
         }
 
     }

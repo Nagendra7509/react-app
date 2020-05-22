@@ -29,12 +29,16 @@ const Display = (props) => {
 @observer
 class SignInPage extends React.Component {
 
-    userNameRef = React.createRef();
-    passwordRef = React.createRef();
+    // userNameRef = React.createRef();
+    // passwordRef = React.createRef();
 
     componentDidMount() {
-        this.userNameRef.current.focus();
+        //this.userNameRef.current.focus();
     }
+
+
+    //ref={this.userNameRef}
+    //ref={this.passwordRef}
 
 
     render() {
@@ -57,14 +61,14 @@ class SignInPage extends React.Component {
                     <SignInForm>
                         <SignInText>Sign in</SignInText>
                         <UserName 
-                            ref={this.userNameRef}
+                            
                             onChange={onChangeUsername} 
                             value={username} 
                             type="text" 
                             placeholder="Username"
                         />
                         <Password 
-                            ref={this.passwordRef}
+                            
                             onChange={onChangePassword} 
                             value={password} 
                             type="password" 

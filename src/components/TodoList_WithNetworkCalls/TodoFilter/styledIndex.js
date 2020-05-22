@@ -20,4 +20,7 @@ border:1px solid red`;
 const Filters = styled.div `
 ${tw `flex justify-around`}`;
 
-export { AllBtn, ActiveBtn, CompletedBtn, ClearCompleted, Filters };
+const Button = styled.button `
+    ${tw ``}`;
+
+export { AllBtn, ActiveBtn, CompletedBtn, ClearCompleted, Filters, Button };
